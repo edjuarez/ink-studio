@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #e8e7e3;
+  --color-surface: #f1f0ec;
+  --color-text: #252525;
+  --color-muted: #6f6f6b;
+  --color-accent: #8a8278;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer components {
+  .section-title {
+    @apply font-display text-7xl font-medium tracking-normal text-text md:text-[6rem];
+  }
+
+  .section-subtitle {
+    max-width: 36rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.625;
+    color: var(--color-muted);
+  }
+
+  .eyebrow {
+    @apply font-sans text-xs font-medium uppercase tracking-[0.2em] text-muted;
+  }
+}
