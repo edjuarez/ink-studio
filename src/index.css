@@ -7,15 +7,20 @@
   --color-muted: #6f6f6b;
   --color-accent: #8a8278;
 
-  --font-display: "Cormorant Garamond", serif;
+  --font-main: "Ewert", serif;
+  --font-display: "Bigshot One", serif;
   --font-sans: "Inter", sans-serif;
+  --font-rye: "Rye", serif;
+  --font-abril: "Abril Fatface", serif;
 }
 
 @layer components {
   .section-title {
     @apply font-display text-7xl font-medium tracking-normal text-text md:text-[6rem];
   }
-
+  .section-title-secondary {
+    @apply font-display text-7xl font-medium tracking-normal text-text md:text-[rem];
+  }
   .section-subtitle {
     max-width: 36rem;
     font-family: var(--font-sans);

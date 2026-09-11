@@ -39,7 +39,7 @@ export default function FAQ({ items = defaultFaqs }) {
   };
 
   return (
-    <section id="faq" className="w-full bg-[#f4f1eb] px-6 py-24 text-neutral-900">
+    <section id="faq" className="w-full bg-[#f4f1eb] px-6 py-24 text-neutral-900 z-index-10 relative">
       <div className="mx-auto max-w-3xl">
         
         {/* Cabecera de la sección */}

@@ -1,6 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
 
-// Datos de ejemplo (puedes reemplazarlos con tus imágenes reales)
 const featuredWorks = [
   {
     id: 1,
@@ -42,15 +41,14 @@ const featuredWorks = [
 
 export default function HomeGallery() {
   return (
-    <section className="w-full bg-[#f4f1eb] px-6 py-24 text-neutral-900">
-      <div className="mx-auto max-w-6xl">
+    <section id="galeria" className="z-10 w-full bg-[#e8e7e3] px-6 py-24 text-neutral-900">
+      <div className="mx-auto">
         
-        {/* Cabecera de la sección */}
-        <div className="mb-16 flex flex-col items-center text-center">
+        <div className="mb-16 flex flex-col">
           <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.35em] text-neutral-500 sm:text-xs">
             Portafolio Seleccionado
           </p>
-          <h2 className="font-serif text-3xl font-normal tracking-tight sm:text-5xl">
+          <h2 className="section-title-secondary">
             Trabajos Recientes
           </h2>
         </div>
@@ -62,17 +60,14 @@ export default function HomeGallery() {
               key={work.id}
               className="group relative flex flex-col overflow-hidden bg-neutral-200/50"
             >
-              {/* Contenedor con aspecto de proporción fija (vertical 3:4 ideal para tatuajes) */}
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-300">
+              <div className="cursor-pointer relative aspect-[3/4] w-full overflow-hidden bg-neutral-300">
                 <img
                   src={work.image}
                   alt={work.title}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="saturate-50 contrast-105 transition-all duration-700 group-hover:saturate-100 h-full w-full object-cover duration-1000 ease-out group-hover:scale-105"
                   loading="lazy"
                 />
-                
-                {/* Overlay sutil al hacer hover */}
-                <div className="absolute inset-0 bg-neutral-950/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                {/* <div className="absolute inset-0 bg-neutral-950/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" /> */}
               </div>
             </div>
           ))}
@@ -80,16 +75,18 @@ export default function HomeGallery() {
 
         {/* Botón hacia la galería completa */}
         <div className="mt-16 flex justify-center">
-          <a
-            href="/galeria" // O '#galeria' / enlace de React Router / Next.js Link
-            className="group inline-flex items-center gap-3 border border-neutral-900/30 px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-neutral-900 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-[#f4f1eb]"
-          >
-            Ver Galería Completa
-            <ArrowUpRight
-              size={16}
-              className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
-          </a>
+            <div className="border-2 border-neutral-700 p-1.5">
+              <a
+                href="#contacto"
+                className="group relative bg-neutral-700 flex items-center gap-3 overflow-hidden border-2 border-neutral-700 px-7 py-3.5 uppercase tracking-[0.15em]"
+              >
+                <span className="absolute inset-0 origin-left scale-x-0 bg-neutral-900 transition-transform duration-500 group-hover:scale-x-100" />
+
+                <span className="text-white relative z-10 transition-colors duration-500 group-hover:text-[#E8E8E8]">
+                  Ver diseños
+                </span>
+              </a>
+            </div>
         </div>
 
       </div>

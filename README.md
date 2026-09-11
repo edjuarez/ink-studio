@@ -46,9 +46,9 @@ src/
 ├── assets/
 ├── App.tsx
 └── main.tsx
+```text
+
 
 ## 👤 Author
 
 Created by **Eduardo Juarez**.
-
-[GitHub](https://github.com/edjuarez) · [Portfolio](https://edujuarez.dev)
