@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { contentData } from '../../data/data';
+import { useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Artista', href: '#sobre-mi' },
-    { name: 'Diseños', href: '#disenos' },
-    { name: 'Cita', href: '#contacto' },
-  ];
+  const location = useLocation();
+  const navLinks = contentData.navigation;
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,8 +36,8 @@ export default function Navbar() {
         fixed top-0 z-50 w-full
         transition-all duration-500 ease-in-out
         ${
-          scrolled
-            ? 'bg-neutral-900 backdrop-blur-md'
+          scrolled || !isHome
+            ? 'sticky bg-neutral-900 backdrop-blur-md'
             : 'bg-transparent'
         }
       `}
@@ -48,24 +46,25 @@ export default function Navbar() {
         className={`
           mx-auto flex items-center px-5 py-4
           transition-all duration-100 ease-in-out
-          ${scrolled ? 'justify-between' : 'justify-center'}
+          ${scrolled || !isHome ? 'justify-between' : 'justify-center'}
         `}
       >
         {/* LOGO */}
         <a
           href="#home"
           className={`
-            flex flex-col leading-none
+            flex flex-row leading-none
             transition-all duration-500
+            items-center gap-3.5 justify-center
             ${
-              scrolled
+              scrolled || !isHome
                 ? 'translate-x-0 opacity-100 text-white'
                 : 'pointer-events-none absolute -translate-x-8 opacity-0'
             }
           `}
         >
-          <span className="text-white font-display text-lg uppercase tracking-wider text-neutral-900 sm:text-xl">
-            Sophie
+          <span className="grenze-gotisch-regular text-white font-display text-lg tracking-wider text-neutral-900 sm:text-[1.5rem]">
+            Sophie Art
           </span>
 
           <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.35em] text-neutral-500 sm:text-[10px]">
@@ -83,7 +82,7 @@ export default function Navbar() {
               className={`
                  font-bold uppercase tracking-[0.2em] transition-colors duration-300
                 ${
-                  scrolled ? 'text-xs text-white hover:text-neutral-500'
+                  scrolled || !isHome ? 'text-xs text-white hover:text-neutral-500'
                     : 'text-[1.2rem]  text-neutral-900 hover:text-neutral-500'
                 }
               `}
@@ -99,7 +98,7 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           className={`
             text-neutral-900 md:hidden
-            ${scrolled ? 'ml-auto' : 'absolute right-5'}
+            ${scrolled || !isHome ? 'ml-auto' : 'absolute right-5'}
           `}
           aria-label="Abrir menú de navegación"
         >

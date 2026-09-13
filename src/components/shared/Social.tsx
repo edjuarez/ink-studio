@@ -1,10 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
+import ActionButton from "../ui/ActionButton";
 
 export default function Social() {
   return (
-    <section className="z-10 bg-[#e8e7e3] w-full bg-[#E8E8E8] py-24 md:py-32">
+    <section className="section-bg-primary w-full bg-[#E8E8E8] px-0">
       <div className="mx-auto max-w-3xl px-6 text-center">
-        <p className="mb-5 text-xs uppercase tracking-[0.3em] text-neutral-500">
+        <p className="section-name">
           Redes sociales
         </p>
 
@@ -14,7 +15,7 @@ export default function Social() {
           rel="noopener noreferrer"
           className="group inline-block"
         >
-          <h2 className="font-display text-5xl leading-none text-neutral-900 transition-opacity duration-300 group-hover:opacity-60 md:text-6xl lg:text-7xl">
+          <h2 className="section-title-secondary">
             @sophiearttattoo
           </h2>
         </a>
@@ -44,19 +45,9 @@ export default function Social() {
           />
         </div>
       </div>
-        <a
-          href="https://instagram.com/sophiearttattoo"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group mt-8 inline-flex items-center gap-3 border border-neutral-900 px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-neutral-900 transition-all duration-300 hover:bg-neutral-900 hover:text-[#E8E8E8]"
-        >
-          Seguir en Instagram
-
-          <ArrowUpRight
-            size={16}
-            className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
-          />
-        </a>
+      <ActionButton href="https://instagram.com/sophiearttattoo" variant="dark">
+        Seguir en Instagram
+      </ActionButton>
     </section>
   );
 }

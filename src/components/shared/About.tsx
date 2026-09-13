@@ -1,6 +1,8 @@
+import ActionButton from "../ui/ActionButton"
+
 export default function About() {
   return (
-    <section id="sobre-mi" className="z-10 bg-[#e8e7e3] w-full px-6 py-24">
+    <section id="sobre-mi" className="section-bg-primary">
       <div className="mx-auto">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="relative lg:col-span-6">
@@ -14,8 +16,8 @@ export default function About() {
           </div>
 
           <div className="flex flex-col items-start lg:col-span-6 lg:pl-4">
-            <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.35em] text-neutral-500 sm:text-xs">
-              El Artista
+            <p className="section-name">
+              Artista
             </p>
 
             <h2 className="section-title">
@@ -32,19 +34,9 @@ export default function About() {
                 Mi proceso es totalmente personalizado: desde la idea inicial y el diseño a medida, hasta la ejecución cuidando cada detalle de contraste, trazo y curación a largo plazo.
               </p>
             </div>
-
-            <div className="border-2 border-neutral-900 bg-white/80 p-1.5 mt-8">
-              <a
-                href="#contacto"
-                className="group bg-white/80 relative flex items-center gap-3 overflow-hidden border-2 border-neutral-900 px-7 py-3.5 uppercase tracking-[0.15em]"
-              >
-                <span className="absolute inset-0 origin-left scale-x-0 bg-neutral-900 transition-transform duration-500 group-hover:scale-x-100" />
-
-                <span className="relative z-10 transition-colors duration-500 group-hover:text-[#E8E8E8]">
-                  Agendar cita
-                </span>
-              </a>
-            </div>
+            <ActionButton href="#contacto" variant="light">
+              Agendar cita
+            </ActionButton>
           </div>
         </div>
       </div>

@@ -7,19 +7,42 @@
   --color-muted: #6f6f6b;
   --color-accent: #8a8278;
 
-  --font-main: "Ewert", serif;
+  --font-main: "Grenze Gotisch", serif;
   --font-display: "Bigshot One", serif;
   --font-sans: "Inter", sans-serif;
   --font-rye: "Rye", serif;
   --font-abril: "Abril Fatface", serif;
 }
 
+.grenze-gotisch-regular {
+  font-family: "Grenze Gotisch", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.grenze-gotisch-bold {
+  font-family: "Grenze Gotisch", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 @layer components {
+  .section-name {
+    @apply mb-3 text-[10px] font-bold uppercase tracking-[0.35em] text-neutral-500 sm:text-[1rem];
+  }
   .section-title {
     @apply font-display text-7xl font-medium tracking-normal text-text md:text-[6rem];
   }
   .section-title-secondary {
     @apply font-display text-7xl font-medium tracking-normal text-text md:text-[rem];
+  }
+  .section-paragraph-primary {
+    @apply mt-8 max-w-md text-sm leading-7 text-neutral-600 md:text-base;
+  }
+  .section-bg-primary {
+    @apply z-10 bg-[#e8e7e3] w-full px-6 py-24
   }
   .section-subtitle {
     max-width: 36rem;
@@ -33,3 +56,4 @@
     @apply font-sans text-xs font-medium uppercase tracking-[0.2em] text-muted;
   }
 }
+@keyframes scroll-dot { 0% { transform: translate(-50%, 0); opacity: 0.4; } 50% { transform: translate(-50%, 16px); opacity: 1; } 100% { transform: translate(-50%, 0); opacity: 0.4; } } .animate-scroll-dot { animation: scroll-dot 1.8s ease-in-out infinite; }

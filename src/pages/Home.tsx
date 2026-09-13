@@ -3,8 +3,9 @@ import HomeGallery from "../components/shared/Gallery";
 import About from "../components/shared/About";
 import FAQ from "../components/shared/FAQ";
 import Social from "../components/shared/Social";
-import StylesBanner from "../components/shared/StylesBanner";
 import Contact from "../components/shared/Contact";
+import Estilos from "../components/shared/Estilos";
+import Prints from "../components/shared/Prints";
 
 export default function Home() {
   return (
@@ -12,8 +13,9 @@ export default function Home() {
       <div id="home" className="w-full z-0 sticky top-0 h-screen">
         <Hero />
       </div>
-      <StylesBanner />
+      <Estilos />
       <HomeGallery />
+      <Prints />
       <About />
       <FAQ />
       <Contact />

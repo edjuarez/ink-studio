@@ -1,11 +1,6 @@
-import { ArrowDownRight } from "lucide-react";
 import { useState } from "react";
-
-const backgroundImages = [
-  "homeGallery/home1.webp",
-  "homeGallery/home2.webp",
-  "homeGallery/home3.webp",
-];
+import ScrollIndicator from "../ui/ScrollIndicator";
+import { FaWhatsappSquare, FaInstagramSquare  } from "react-icons/fa";
 
 export default function Hero() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -41,21 +36,27 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-20 flex max-w-4xl flex-col items-center justify-center text-center">
-
-        <p className="mb-6 text-[10px] font-medium uppercase tracking-[0.35em] sm:text-xs">
+{/* 
+        <p className="mb-6 text-[10px] sm:text-[1rem] font-medium uppercase tracking-[0.35em]">
           Tattoo Artist · Barcelona
-        </p>
+        </p> */}
 
         <div className="flex flex-col items-center justify-center">
 
-          <h1
-            style={{ textShadow: "0 0 1px black" }}
-            className="font-main text-[15vw] font-normal leading-[0.75] tracking-[-0.07em] text-neutral-900 sm:text-[12vw] lg:text-[7rem]"
-          >
-            Sophie Art
-          </h1>
+        <h1
+          className="grenze-gotisch-bold text-[17vw] leading-[0.75] tracking-wider text-neutral-800 sm:text-[12vw] lg:text-[9rem]"
+          style={{
+            textShadow: `
+              ${mouse.x * 5}px ${mouse.y * 5}px 0 rgba(230, 216, 216, 0.76),
+              ${mouse.x * -14}px ${mouse.y * -14}px 10px rgba(0,0,0,0.18)
+            `,
+            transition: "text-shadow 0.15s ease-out",
+          }}
+        >
+          Sophie Art
+        </h1>
 
-          <p className="font-display text-[5rem] text-neutral-900">
+          <p className="font-display text-[5rem] text-neutral-800">
             t · a · t · t · o · o
           </p>
 
@@ -75,17 +76,24 @@ export default function Hero() {
                 </span>
               </a>
             </div>
-
-            {/* WhatsApp */}
-            <a
-              href="https://wa.me/34600000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs uppercase tracking-[0.2em] text-neutral-800 underline underline-offset-4 transition-colors duration-300 hover:text-neutral-500"
-            >
-              WhatsApp
-            </a>
-
+            <div className="flex flex-row items-center gap-3">
+              <a
+                href="https://wa.me/34600000000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-neutral-700 hover:text-neutral-900 transition-colors duration-500"
+              >
+                <FaWhatsappSquare size={50} />
+              </a>
+              <a
+                href="https://instagram.com/sophiearttattoo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-neutral-700 hover:text-neutral-900 transition-colors duration-500"
+              >
+                <FaInstagramSquare size={50} />
+              </a>
+            </div>
           </div>
         </div>
       </div>

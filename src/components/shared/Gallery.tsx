@@ -41,11 +41,11 @@ const featuredWorks = [
 
 export default function HomeGallery() {
   return (
-    <section id="galeria" className="z-10 w-full bg-[#e8e7e3] px-6 py-24 text-neutral-900">
+    <section id="galeria" className="section-bg-primary">
       <div className="mx-auto">
         
         <div className="mb-16 flex flex-col">
-          <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.35em] text-neutral-500 sm:text-xs">
+          <p className="section-name">
             Portafolio Seleccionado
           </p>
           <h2 className="section-title-secondary">
