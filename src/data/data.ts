@@ -35,15 +35,17 @@ export const contentData = {
         ]
     },
     "navigation": [
-        { name: 'Home', href: '#home' },
-        { name: 'Artista', href: '#sobre-mi' },
-        { name: 'Diseños', href: '#disenos' },
-        { name: 'Prints', href: '#prints' },
-        { name: 'Cita', href: '#contacto' }
+        { name: 'Home', href: '/' },
+        { name: 'Artista', href: '/artista' },
+        { name: 'Diseños', href: '/diseños' },
+        { name: 'Prints', href: '/prints' },
+        { name: 'Cita', href: '/contacto' }
     ],
     userData: {
         phone: "",
         email: "",
-        instagramUrl: "https://www.instagram.com/sophiearttattoo/"
+        instagram: "@sophiearttattoo",
+        instagramUrl: "https://www.instagram.com/sophiearttattoo/",
+        location: "Barcelona, España"
     }
 }

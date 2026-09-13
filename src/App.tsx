@@ -10,20 +10,26 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ScrollIndicator from "./components/ui/ScrollIndicator";
 import WhatsAppButton from "./components/ui/WhatsAppButton";
+import ArtistPage from "./pages/ArtistPage";
+import DesignsGalleryPage from "./pages/DesignsGalleryPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contacto" element={<Contact />} />
+        <Route path="/artista" element={<ArtistPage />} />
+        <Route path="/diseños" element={<DesignsGalleryPage />} />
       </Routes>
 
       <Footer />
 
-      <ScrollIndicator targetId="about" />
+      <ScrollIndicator targetId="" />
 
       <WhatsAppButton />
     </>

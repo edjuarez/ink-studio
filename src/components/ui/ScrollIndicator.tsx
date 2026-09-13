@@ -44,7 +44,7 @@ export default function ScrollIndicator({
       type="button"
       onClick={handleClick}
       aria-label="Ir a la siguiente sección"
-      className={`cursor-pointer absolute bottom-8 left-1/2 z-20 -translate-x-1/2 transition-all duration-500 ${
+      className={`cursor-pointer absolute bottom-8 left-1/2 z-9 -translate-x-1/2 transition-all duration-500 ${
         visible
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0"

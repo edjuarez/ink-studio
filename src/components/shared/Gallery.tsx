@@ -1,95 +1,108 @@
-import { ArrowUpRight } from 'lucide-react';
+import { useState } from "react";
 
-const featuredWorks = [
-  {
-    id: 1,
-    title: 'Serpiente & Peonía',
-    style: 'Blackwork',
-    image: 'homeGallery/home1.webp',
-  },
-  {
-    id: 2,
-    title: 'Retrato Botánico',
-    style: 'Fine Line',
-    image: 'homeGallery/home2.webp',
-  },
-  {
-    id: 3,
-    title: 'Geometría Sagrada',
-    style: 'Dotwork',
-    image: 'homeGallery/home3.webp',
-  },
-  {
-    id: 4,
-    title: 'Daga Minimalista',
-    style: 'Microrealismo',
-    image: 'homeGallery/home4.webp',
-  },
-  {
-    id: 5,
-    title: 'Dragón Japonés',
-    style: 'Custom Blackwork',
-    image: 'homeGallery/home5.webp',
-  },
-  {
-    id: 6,
-    title: 'Composición Floral',
-    style: 'Fine Line',
-    image: 'homeGallery/home6.webp',
-  },
-];
+type GalleryItem = {
+  id: number;
+  image: string;
+  title: string;
+  category?: string;
+};
 
-export default function HomeGallery() {
+type GalleryProps = {
+  items: GalleryItem[];
+  variant: "designs" | "tattoos" | "prints";
+};
+
+export default function Gallery({
+  items,
+  variant,
+}: GalleryProps) {
+  const [activeCategory, setActiveCategory] = useState("Todos");
+
+  const categories = [
+    "Todos",
+    ...new Set(
+      items
+        .map((item) => item.category)
+        .filter((category): category is string => Boolean(category))
+    ),
+  ];
+
+  const filteredItems =
+    activeCategory === "Todos"
+      ? items
+      : items.filter((item) => item.category === activeCategory);
+
+  const gridStyles = {
+    designs: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5",
+    tattoos: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+    prints: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5",
+  };
+
+  const aspectStyles = {
+    designs: "aspect-[3/4]",
+    tattoos: "aspect-[4/5]",
+    prints: "aspect-[3/4]",
+  };
+
+  const showCategories =
+    variant === "designs" && categories.length > 1;
+
   return (
-    <section id="galeria" className="section-bg-primary">
-      <div className="mx-auto">
-        
-        <div className="mb-16 flex flex-col">
-          <p className="section-name">
-            Portafolio Seleccionado
-          </p>
-          <h2 className="section-title-secondary">
-            Trabajos Recientes
-          </h2>
-        </div>
+    <div className="w-full">
+      {showCategories && (
+        <div className="mb-14 flex flex-wrap justify-center gap-x-7 gap-y-4">
+          {categories.map((category) => {
+            const isActive = activeCategory === category;
 
-        {/* Grilla de 6 imágenes */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {featuredWorks.map((work) => (
-            <div
-              key={work.id}
-              className="group relative flex flex-col overflow-hidden bg-neutral-200/50"
-            >
-              <div className="cursor-pointer relative aspect-[3/4] w-full overflow-hidden bg-neutral-300">
-                <img
-                  src={work.image}
-                  alt={work.title}
-                  className="saturate-50 contrast-105 transition-all duration-700 group-hover:saturate-100 h-full w-full object-cover duration-1000 ease-out group-hover:scale-105"
-                  loading="lazy"
-                />
-                {/* <div className="absolute inset-0 bg-neutral-950/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" /> */}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Botón hacia la galería completa */}
-        <div className="mt-16 flex justify-center">
-            <div className="border-2 border-neutral-700 p-1.5">
-              <a
-                href="#contacto"
-                className="group relative bg-neutral-700 flex items-center gap-3 overflow-hidden border-2 border-neutral-700 px-7 py-3.5 uppercase tracking-[0.15em]"
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setActiveCategory(category)}
+                className={`relative pb-2 text-xs uppercase tracking-[0.18em] transition-colors duration-300 ${
+                  isActive
+                    ? "text-neutral-900"
+                    : "text-neutral-500 hover:text-neutral-900"
+                }`}
               >
-                <span className="absolute inset-0 origin-left scale-x-0 bg-neutral-900 transition-transform duration-500 group-hover:scale-x-100" />
+                {category}
 
-                <span className="text-white relative z-10 transition-colors duration-500 group-hover:text-[#E8E8E8]">
-                  Ver diseños
-                </span>
-              </a>
-            </div>
+                {isActive && (
+                  <span className="absolute bottom-0 left-0 h-px w-full bg-neutral-900" />
+                )}
+              </button>
+            );
+          })}
         </div>
+      )}
 
+      <div className={`grid gap-4 ${gridStyles[variant]}`}>
+        {filteredItems.map((item) => (
+          <article key={item.id} className="group overflow-hidden">
+            <div
+              className={`overflow-hidden bg-neutral-200 ${aspectStyles[variant]}`}
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+            </div>
+
+            <div className="flex items-center justify-between py-3">
+              <span className="text-[10px] uppercase tracking-[0.15em] text-neutral-800">
+                {item.title}
+              </span>
+
+              {variant === "designs" && item.category && (
+                <span className="text-[9px] uppercase tracking-[0.15em] text-neutral-500">
+                  {item.category}
+                </span>
+              )}
+            </div>
+          </article>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

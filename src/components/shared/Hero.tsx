@@ -1,9 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ScrollIndicator from "../ui/ScrollIndicator";
-import { FaWhatsappSquare, FaInstagramSquare  } from "react-icons/fa";
+import { FaWhatsappSquare, FaInstagramSquare } from "react-icons/fa";
+import ActionButton from "../ui/ActionButton";
 
 export default function Hero() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [blur, setBlur] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const hero = document.getElementById("home");
+
+      if (!hero) return;
+
+      const heroHeight = hero.offsetHeight;
+
+      // 0 al principio, 1 al llegar al final del hero
+      const progress = Math.min(window.scrollY / heroHeight, 1);
+
+      // Máximo 5px de blur
+      setBlur(progress * 5);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -18,6 +44,9 @@ export default function Hero() {
     <section
       onMouseMove={handleMouseMove}
       className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#E8E8E8] px-6"
+      style={{
+        filter: `blur(${blur}px)`,
+      }}
     >
       {/* Background */}
       <div
@@ -36,25 +65,25 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-20 flex max-w-4xl flex-col items-center justify-center text-center">
-{/* 
+        {/* 
         <p className="mb-6 text-[10px] sm:text-[1rem] font-medium uppercase tracking-[0.35em]">
           Tattoo Artist · Barcelona
         </p> */}
 
         <div className="flex flex-col items-center justify-center">
 
-        <h1
-          className="grenze-gotisch-bold text-[17vw] leading-[0.75] tracking-wider text-neutral-800 sm:text-[12vw] lg:text-[9rem]"
-          style={{
-            textShadow: `
+          <h1
+            className="grenze-gotisch-bold text-[17vw] leading-[0.75] tracking-wider text-neutral-800 sm:text-[12vw] lg:text-[9rem]"
+            style={{
+              textShadow: `
               ${mouse.x * 5}px ${mouse.y * 5}px 0 rgba(230, 216, 216, 0.76),
               ${mouse.x * -14}px ${mouse.y * -14}px 10px rgba(0,0,0,0.18)
             `,
-            transition: "text-shadow 0.15s ease-out",
-          }}
-        >
-          Sophie Art
-        </h1>
+              transition: "text-shadow 0.15s ease-out",
+            }}
+          >
+            Sophie Art
+          </h1>
 
           <p className="font-display text-[5rem] text-neutral-800">
             t · a · t · t · o · o
@@ -75,7 +104,11 @@ export default function Hero() {
                   Agendar cita
                 </span>
               </a>
+                  
             </div>
+{/*             <ActionButton href="#contacto" variant="dark">
+                    Agendar cita
+                  </ActionButton> */}
             <div className="flex flex-row items-center gap-3">
               <a
                 href="https://wa.me/34600000000"

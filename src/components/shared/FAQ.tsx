@@ -3,7 +3,6 @@ import { Plus, Minus } from 'lucide-react';
 import {contentData} from '../../data/data';
 
 export default function FAQ({ items = contentData.components.FAQ}) {
-  // Permite controlar qué pregunta está abierta. Si pasas null, todas inician cerradas.
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {

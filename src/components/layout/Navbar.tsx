@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { contentData } from '../../data/data';
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +51,7 @@ export default function Navbar() {
       >
         {/* LOGO */}
         <a
-          href="#home"
+          href="/"
           className={`
             flex flex-row leading-none
             transition-all duration-500
@@ -75,20 +75,21 @@ export default function Navbar() {
         {/* DESKTOP NAV */}
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
-              //className="text-[1.2rem] font-bold uppercase tracking-[0.2em] text-neutral-900 transition-colors duration-300 hover:text-neutral-500"
+              to={link.href}
               className={`
-                 font-bold uppercase tracking-[0.2em] transition-colors duration-300
+                font-bold uppercase tracking-[0.2em]
+                transition-colors duration-300
                 ${
-                  scrolled || !isHome ? 'text-xs text-white hover:text-neutral-500'
-                    : 'text-[1.2rem]  text-neutral-900 hover:text-neutral-500'
+                  scrolled || !isHome
+                    ? "text-xs text-white hover:text-neutral-500"
+                    : "text-[1.2rem] text-neutral-900 hover:text-neutral-500"
                 }
               `}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
 

@@ -1,8 +1,9 @@
 import ActionButton from "../ui/ActionButton"
+import SocialButton from "../ui/SocialButton";
 
 export default function About() {
   return (
-    <section id="sobre-mi" className="section-bg-primary">
+    <section id="artista" className="section-bg-primary">
       <div className="mx-auto">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="relative lg:col-span-6">
@@ -37,6 +38,11 @@ export default function About() {
             <ActionButton href="#contacto" variant="light">
               Agendar cita
             </ActionButton>
+            <div className="mt-8 flex gap-4">
+            <SocialButton type="instagram" />
+            <SocialButton type="whatsapp" />
+            </div>
+
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 type ActionButtonProps = {
   href: string;
@@ -14,7 +15,7 @@ export default function ActionButton({
   const styles = {
     dark: {
       wrapper: "border-neutral-700",
-      button: "bg-neutral-700 border-neutral-700",
+      button: "bg-neutral-500 border-neutral-700",
       hover: "bg-neutral-900",
       text: "text-white",
     },
@@ -31,10 +32,8 @@ export default function ActionButton({
   return (
     <div className="mt-16 flex justify-center">
       <div className={`border-2 p-1.5 ${current.wrapper}`}>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href={href}
+        <Link
+          to={href}
           className={`group relative flex items-center gap-3 overflow-hidden border-2 px-7 py-3.5 uppercase tracking-[0.15em] ${current.button}`}
         >
           <span
@@ -46,7 +45,7 @@ export default function ActionButton({
           >
             {children}
           </span>
-        </a>
+        </Link>
       </div>
     </div>
   );

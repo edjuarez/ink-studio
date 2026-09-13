@@ -30,11 +30,11 @@ export default function Contact() {
   return (
     <section
       id="contacto"
-      className="relative z-10 w-full bg-[#E8E8E8] px-6 py-24 md:py-32"
+      className="section-bg-primary"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
         {/* LEFT SECTION */}
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col">
           <div>
             <p className="section-name">
               Contacto
@@ -103,7 +103,7 @@ export default function Contact() {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="name"
-                className="text-xs uppercase tracking-[0.15em] text-neutral-500"
+                className="section-form-label"
               >
                 Nombre
               </label>
@@ -126,7 +126,7 @@ export default function Contact() {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="email"
-                className="text-xs uppercase tracking-[0.15em] text-neutral-500"
+                className="section-form-label"
               >
                 Email
               </label>
@@ -155,7 +155,7 @@ export default function Contact() {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="phone"
-              className="text-xs uppercase tracking-[0.15em] text-neutral-500"
+              className="section-form-label"
             >
               WhatsApp / Teléfono
             </label>
@@ -172,7 +172,7 @@ export default function Contact() {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="idea"
-              className="text-xs uppercase tracking-[0.15em] text-neutral-500"
+              className="section-form-label"
             >
               Cuéntame tu idea
             </label>
@@ -197,7 +197,7 @@ export default function Contact() {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="placement"
-                className="text-xs uppercase tracking-[0.15em] text-neutral-500"
+                className="section-form-label"
               >
                 Zona del cuerpo
               </label>
@@ -213,7 +213,7 @@ export default function Contact() {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="size"
-                className="text-xs uppercase tracking-[0.15em] text-neutral-500"
+                className="section-form-label"
               >
                 Tamaño aproximado
               </label>
@@ -232,7 +232,7 @@ export default function Contact() {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="style"
-                className="text-xs uppercase tracking-[0.15em] text-neutral-500"
+                className="section-form-label"
               >
                 Estilo
               </label>
@@ -257,7 +257,7 @@ export default function Contact() {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="budget"
-                className="text-xs uppercase tracking-[0.15em] text-neutral-500"
+                className="section-form-label"
               >
                 Presupuesto aproximado
               </label>
@@ -282,7 +282,7 @@ export default function Contact() {
           <div className="flex flex-col gap-3">
             <label
               htmlFor="references"
-              className="text-xs uppercase tracking-[0.15em] text-neutral-500"
+              className="section-form-label"
             >
               Imágenes de referencia
             </label>

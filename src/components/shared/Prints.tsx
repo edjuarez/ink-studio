@@ -14,15 +14,15 @@ export default function Prints() {
           
           {/* Texto */}
           <div>
-            <p className="section-name">
+            <p className="section-name text-center">
               Obra gráfica
             </p>
 
-            <h2 className="section-title-secondary">
+            <h2 className="section-title-secondary text-center">
               Prints
             </h2>
 
-            <p className="mt-6 max-w-md text-sm leading-7 text-neutral-600 md:text-base">
+            <p className="mt-6 text-sm text-neutral-600 md:text-base text-center">
               Ilustraciones y piezas creadas por Sophie para llevar su trabajo
               más allá del tatuaje.
             </p>
