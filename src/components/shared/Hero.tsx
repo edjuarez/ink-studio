@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ScrollIndicator from "../ui/ScrollIndicator";
 import { FaWhatsappSquare, FaInstagramSquare } from "react-icons/fa";
 import ActionButton from "../ui/ActionButton";
+import FadeIn from "../ui/FadeIn";
 
 export default function Hero() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -64,7 +65,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 flex max-w-4xl flex-col items-center justify-center text-center">
+      <FadeIn className="relative z-20 flex max-w-4xl flex-col items-center justify-center text-center">
         {/* 
         <p className="mb-6 text-[10px] sm:text-[1rem] font-medium uppercase tracking-[0.35em]">
           Tattoo Artist · Barcelona
@@ -129,7 +130,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
+      </FadeIn>
     </section>
   );
 }

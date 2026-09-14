@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { useForm } from "react-hook-form";
+import FadeIn from "../ui/FadeIn";
 
 type ContactFormData = {
   name: string;
@@ -34,7 +35,7 @@ export default function Contact() {
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
         {/* LEFT SECTION */}
-        <div className="flex flex-col">
+        <FadeIn className="flex flex-col">
           <div>
             <p className="section-name">
               Contacto
@@ -91,13 +92,14 @@ export default function Contact() {
               </p>
             </div>
           </div>
-        </div>
+        </FadeIn>
 
         {/* RIGHT SECTION - FORM */}
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-8"
-        >
+        <FadeIn delay={0.15}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-8"
+          >
           {/* Nombre + Email */}
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <div className="flex flex-col gap-2">
@@ -325,7 +327,8 @@ export default function Contact() {
               />
             </button>
           </div>
-        </form>
+          </form>
+        </FadeIn>
       </div>
     </section>
   );

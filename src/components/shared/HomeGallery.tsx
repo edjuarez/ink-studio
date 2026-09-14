@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import ActionButton from '../ui/ActionButton';
+import FadeIn from '../ui/FadeIn';
 
 const featuredWorks = [
   {
@@ -45,17 +46,17 @@ export default function HomeGallery() {
     <section id="galeria" className="section-bg-primary">
       <div className="mx-auto">
         
-        <div className="mb-16 flex flex-col">
+        <FadeIn className="mb-16 flex flex-col">
           <p className="section-name">
             Portafolio Seleccionado
           </p>
           <h2 className="section-title-secondary">
             Trabajos Recientes
           </h2>
-        </div>
+        </FadeIn>
 
         {/* Grilla de 6 imágenes */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <FadeIn delay={0.15} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {featuredWorks.map((work) => (
             <div
               key={work.id}
@@ -72,9 +73,7 @@ export default function HomeGallery() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Botón hacia la galería completa */}
+        </FadeIn>
         <div className="flex justify-center">
             <ActionButton href="/diseños" variant="light">
               Ver diseños

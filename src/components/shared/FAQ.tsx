@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import {contentData} from '../../data/data';
+import FadeIn from '../ui/FadeIn';
 
 export default function FAQ({ items = contentData.components.FAQ}) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -12,16 +13,16 @@ export default function FAQ({ items = contentData.components.FAQ}) {
   return (
     <section id="faq" className="section-bg-primary">
       <div className="mx-auto max-w-3xl">
-        <div className="mb-16 text-center">
+        <FadeIn className="mb-16 text-center">
           <p className="section-name">
             Resolviendo dudas
           </p>
           <h2 className="section-title-secondary">
             Preguntas Frecuentes
           </h2>
-        </div>
+        </FadeIn>
 
-        <div className="divide-y divide-neutral-500 border-y border-neutral-500">
+        <FadeIn delay={0.15} className="divide-y divide-neutral-500 border-y border-neutral-500">
           {items.map((item, index) => {
             const isOpen = openIndex === index;
 
@@ -54,7 +55,7 @@ export default function FAQ({ items = contentData.components.FAQ}) {
               </div>
             );
           })}
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

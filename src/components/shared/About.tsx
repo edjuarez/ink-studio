@@ -1,12 +1,13 @@
 import ActionButton from "../ui/ActionButton"
 import SocialButton from "../ui/SocialButton";
+import FadeIn from "../ui/FadeIn";
 
 export default function About() {
   return (
     <section id="artista" className="section-bg-primary">
       <div className="mx-auto">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="relative lg:col-span-6">
+          <FadeIn className="relative lg:col-span-6">
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-neutral-300">
               <img
                 src="artist.webp"
@@ -14,9 +15,9 @@ export default function About() {
                 className="cursor-pointer h-full w-full object-cover grayscale contrast-105 transition-all duration-700 hover:scale-105 hover:grayscale-0"
               />
             </div>
-          </div>
+          </FadeIn>
 
-          <div className="flex flex-col items-start lg:col-span-6 lg:pl-4">
+          <FadeIn delay={0.15} className="flex flex-col items-start lg:col-span-6 lg:pl-4">
             <p className="section-name">
               Artista
             </p>
@@ -43,7 +44,7 @@ export default function About() {
             <SocialButton type="whatsapp" />
             </div>
 
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

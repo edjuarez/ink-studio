@@ -1,10 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import ActionButton from "../ui/ActionButton";
+import FadeIn from "../ui/FadeIn";
 
 export default function Social() {
   return (
     <section className="section-bg-primary w-full bg-[#E8E8E8] px-0">
-      <div className="mx-auto max-w-3xl px-6 text-center">
+      <FadeIn className="mx-auto max-w-3xl px-6 text-center">
         <p className="section-name">
           Redes sociales
         </p>
@@ -25,10 +26,9 @@ export default function Social() {
           todo lo que voy creando. Publico contenido constantemente y
           comparto nuevos tatuajes, ideas e inspiración.
         </p>
-      </div>
-
+      </FadeIn>
       {/* IMAGES */}
-      <div className="mt-20 grid w-full grid-cols-2">
+      <FadeIn delay={0.15} className="mt-20 grid w-full grid-cols-2">
         <div className="overflow-hidden">
           <img
             src="/social/social-1.webp"
@@ -44,7 +44,7 @@ export default function Social() {
             className="h-full w-full object-cover saturate-50"
           />
         </div>
-      </div>
+      </FadeIn>
       <ActionButton href="https://instagram.com/sophiearttattoo" variant="dark">
         Seguir en Instagram
       </ActionButton>

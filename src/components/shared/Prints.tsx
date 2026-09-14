@@ -1,4 +1,5 @@
 import ActionButton from "../../components/ui/ActionButton";
+import FadeIn from "../ui/FadeIn";
 
 const prints = [
   "/prints/print_1.jpg",
@@ -13,27 +14,29 @@ export default function Prints() {
         <div className="grid grid-cols-1 gap-14 md:grid-cols-[0.8fr_1.2fr] md:items-center">
           
           {/* Texto */}
-          <div>
-            <p className="section-name text-center">
-              Obra gráfica
-            </p>
+          <FadeIn>
+            <div>
+              <p className="section-name text-center">
+                Obra gráfica
+              </p>
 
-            <h2 className="section-title-secondary text-center">
-              Prints
-            </h2>
+              <h2 className="section-title-secondary text-center">
+                Prints
+              </h2>
 
-            <p className="mt-6 text-sm text-neutral-600 md:text-base text-center">
-              Ilustraciones y piezas creadas por Sophie para llevar su trabajo
-              más allá del tatuaje.
-            </p>
+              <p className="mt-6 text-sm text-neutral-600 md:text-base text-center">
+                Ilustraciones y piezas creadas por Sophie para llevar su trabajo
+                más allá del tatuaje.
+              </p>
 
-            <ActionButton href="/prints">
-              Ver prints
-            </ActionButton>
-          </div>
+              <ActionButton href="/prints">
+                Ver prints
+              </ActionButton>
+            </div>
+          </FadeIn>
 
           {/* Galería */}
-          <div className="grid grid-cols-3 gap-3 md:gap-5">
+          <FadeIn delay={0.15} className="grid grid-cols-3 gap-3 md:gap-5">
             {prints.map((image, index) => (
               <a
                 key={image}
@@ -47,8 +50,7 @@ export default function Prints() {
                 />
               </a>
             ))}
-          </div>
-
+          </FadeIn>
         </div>
       </div>
     </section>
