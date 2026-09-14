@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import FadeIn from "./FadeIn";
 
 type ActionButtonProps = {
   href: string;
@@ -30,7 +31,7 @@ export default function ActionButton({
   const current = styles[variant];
 
   return (
-    <div className="mt-16 flex justify-center">
+    <FadeIn className="mt-16 flex justify-center">
       <div className={`border-2 p-1.5 ${current.wrapper}`}>
         <Link
           to={href}
@@ -47,6 +48,6 @@ export default function ActionButton({
           </span>
         </Link>
       </div>
-    </div>
+    </FadeIn>
   );
 }

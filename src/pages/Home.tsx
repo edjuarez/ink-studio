@@ -6,6 +6,7 @@ import Social from "../components/shared/Social";
 import Contact from "../components/shared/Contact";
 import Estilos from "../components/shared/Estilos";
 import Prints from "../components/shared/Prints";
+import FadeIn from "../components/ui/FadeIn";
 
 export default function Home() {
   return (
@@ -13,13 +14,27 @@ export default function Home() {
       <div id="home" className="w-full z-0 sticky h-screen">
         <Hero />
       </div>
-      <Estilos />
-      <HomeGallery />
-      <Prints />
-      <About />
-      <FAQ />
-      <Contact />
-      <Social />
+      <FadeIn>
+        <Estilos />
+      </FadeIn>
+      <FadeIn>
+        <HomeGallery />
+      </FadeIn>
+      <FadeIn>
+        <Prints />
+      </FadeIn>
+      <FadeIn>
+        <About />
+      </FadeIn>
+      <FadeIn>
+        <FAQ />
+      </FadeIn>
+      <FadeIn>
+        <Contact />
+      </FadeIn>
+      <FadeIn>
+        <Social />
+      </FadeIn>
     </main>
   );
 }
