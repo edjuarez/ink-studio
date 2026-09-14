@@ -10,7 +10,7 @@ import Prints from "../components/shared/Prints";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <div id="home" className="w-full z-0 sticky top-0 h-screen">
+      <div id="home" className="w-full z-0 sticky h-screen">
         <Hero />
       </div>
       <Estilos />

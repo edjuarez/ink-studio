@@ -1,0 +1,33 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "anthropic/claude-sonnet-4-20250514",
+  "agent": {
+    "dev": {
+      "description": "Agente de desarrollo con todos los permisos para editar archivos y ejecutar comandos",
+      "mode": "primary",
+      "permission": {
+        "edit": "ask",
+        "bash": "allow"
+      }
+    },
+    "git-ops": {
+      "description": "Agente para tareas de git: commits, push, pull, crear ramas",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "deny",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "git add*": "allow",
+          "git commit*": "allow",
+          "git push*": "allow",
+          "git pull*": "allow",
+          "git log*": "allow",
+          "git branch*": "allow",
+          "git checkout*": "allow"
+        }
+      }
+    }
+  }
+}

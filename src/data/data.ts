@@ -29,12 +29,7 @@ export const contentData = {
                 id: '4',
                 question: '¿Cómo debo cuidar el tatuaje una vez terminado?',
                 answer: 'Al finalizar la sesión te entregaré una guía impresa/digital con los cuidados específicos: uso del parche protector o film, jabón neutro, crema cicatrizante recomendada y precauciones con el sol y el agua.',
-            },
-            {
-                id: '5',
-                question: '¿Trabajas en Córdoba o en Barcelona?',
-                answer: 'Divido mi agenda entre ambas ciudades a lo largo del año. En mis redes sociales y en la cabecera de esta web voy actualizando las fechas exactas de apertura de agenda para cada ubicación.',
-            }           
+            } 
         ]
     },
     "navigation": [
