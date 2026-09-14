@@ -13,6 +13,7 @@ import WhatsAppButton from "./components/ui/WhatsAppButton";
 import ArtistPage from "./pages/ArtistPage";
 import DesignsGalleryPage from "./pages/DesignsGalleryPage";
 import ScrollToTop from "./components/ScrollToTop";
+import PrintsGalleryPage from "./pages/PrintsPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/contacto" element={<Contact />} />
         <Route path="/artista" element={<ArtistPage />} />
         <Route path="/diseños" element={<DesignsGalleryPage />} />
+        <Route path="/prints" element={<PrintsGalleryPage />} />
       </Routes>
 
       <Footer />

@@ -37,7 +37,7 @@ export default function Navbar() {
         transition-all duration-500 ease-in-out
         ${
           scrolled || !isHome
-            ? 'sticky bg-neutral-900 backdrop-blur-md'
+            ? ' bg-neutral-900 backdrop-blur-md'
             : 'bg-transparent'
         }
       `}
@@ -80,11 +80,10 @@ export default function Navbar() {
               to={link.href}
               className={`
                 font-bold uppercase tracking-[0.2em]
-                transition-colors duration-300
                 ${
                   scrolled || !isHome
                     ? "text-xs text-white hover:text-neutral-500"
-                    : "text-[1.2rem] text-neutral-900 hover:text-neutral-500"
+                    : "text-[1.2rem] text-neutral-900 hover:text-[#f4f1eb] underline-offset-4 hover:underline"
                 }
               `}
             >

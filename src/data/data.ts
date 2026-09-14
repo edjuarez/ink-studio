@@ -5,6 +5,9 @@ export const contentData = {
             "subtitle": "tattoo"
         },
         "about": {
+            "name": "Artista",
+            "title": "Sofi",
+            "description": ""
         },
         "FAQ": [
             {

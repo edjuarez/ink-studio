@@ -3,9 +3,9 @@ import { Plus, Minus } from 'lucide-react';
 import {contentData} from '../../data/data';
 
 export default function FAQ({ items = contentData.components.FAQ}) {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -55,7 +55,6 @@ export default function FAQ({ items = contentData.components.FAQ}) {
             );
           })}
         </div>
-
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import Gallery from "../components/shared/Gallery";
 
-const prints = [
+const portfolio = [
   {
     id: 1,
     image: "/printsGallery/print_1.webp",
@@ -63,7 +63,7 @@ const prints = [
   },
 ];
 
-export default function PrintsGalleryPage() {
+export default function PortfolioGalleryPage() {
   return (
     <main className="section-bg-primary">
       <section className="mx-auto w-full">
@@ -79,7 +79,7 @@ export default function PrintsGalleryPage() {
         </div>
 
         <Gallery
-          items={prints}
+          items={portfolio}
           variant="prints"
         />
       </section>
