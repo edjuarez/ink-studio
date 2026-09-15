@@ -64,12 +64,12 @@ export default function Navbar() {
             }
           `}
         >
-          <span className="grenze-gotisch-regular text-white font-display text-lg tracking-wider text-neutral-900 sm:text-[1.5rem]">
-            Sophie Art
+<span className="grenze-gotisch-regular text-white font-display text-lg tracking-wider text-neutral-900 sm:text-[1.5rem]">
+            {contentData.site.name}
           </span>
 
           <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.35em] text-neutral-500 sm:text-[10px]">
-            TATTOO
+            {contentData.site.tagline}
           </span>
         </a>
 
@@ -97,7 +97,7 @@ export default function Navbar() {
         {scrolled || !isHome ? (
           <div className="hidden flex-1 items-center justify-end gap-3 md:flex">
             <a
-              href="https://instagram.com/sophiearttattoo"
+              href={contentData.userData.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/90 transition-colors duration-300 hover:text-white"
@@ -105,7 +105,7 @@ export default function Navbar() {
               <FaInstagramSquare size={28} />
             </a>
             <a
-              href="https://wa.me/34600000000"
+              href={contentData.userData.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/90 transition-colors duration-300 hover:text-white"
@@ -123,7 +123,7 @@ export default function Navbar() {
             text-neutral-900 md:hidden
             ${scrolled || !isHome ? 'ml-auto' : 'absolute right-5'}
           `}
-          aria-label="Abrir menú de navegación"
+          aria-label={contentData.buttons.openMenu}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -145,12 +145,12 @@ export default function Navbar() {
             ))}
 
             <a
-              href="https://instagram.com"
+              href={contentData.userData.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 flex items-center justify-center border border-neutral-900 bg-neutral-900 py-3 text-xs font-medium uppercase tracking-[0.15em] text-[#f4f1eb]"
             >
-              Instagram
+              {contentData.buttons.instagram}
             </a>
           </nav>
         </div>

@@ -1,13 +1,10 @@
 import ActionButton from "../../components/ui/ActionButton";
 import FadeIn from "../ui/FadeIn";
-
-const prints = [
-  "/prints/print-1.jpg",
-  "/prints/print-2.jpg",
-  "/prints/print-3.jpg",
-];
+import { contentData } from "../../data/data";
 
 export default function Prints() {
+  const { printsSection } = contentData.sections;
+  const { buttons, common } = contentData;
   return (
     <section className="section-bg-primary">
       <div className="mx-auto">
@@ -17,26 +14,26 @@ export default function Prints() {
           <FadeIn>
             <div>
               <p className="section-name text-center">
-                Obra gráfica
+                {printsSection.eyebrow}
               </p>
 
               <h2 className="section-title-secondary text-center">
-                Prints
+                {printsSection.title}
               </h2>
 
               <p className="mt-6 text-sm text-neutral-600 md:text-base text-center">
-                Ilustraciones y piezas originales que exploran mi trabajo más allá del tatuaje.
+                {printsSection.description}
               </p>
 
               <ActionButton href="/prints">
-                Ver prints
+                {buttons.seePrints}
               </ActionButton>
             </div>
           </FadeIn>
 
           {/* Galería */}
           <FadeIn delay={0.15} className="grid grid-cols-3 gap-3 md:gap-5">
-            {prints.map((image, index) => (
+            {printsSection.images.map((image, index) => (
               <a
                 key={image}
                 href="/prints"
@@ -44,7 +41,7 @@ export default function Prints() {
               >
                 <img
                   src={image}
-                  alt={`Print ${index + 1}`}
+                  alt={common.printAlt(index + 1)}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </a>

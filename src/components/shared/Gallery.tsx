@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import FadeIn from "../ui/FadeIn";
+import { contentData } from "../../data/data";
 
 type GalleryItem = {
   id: number;
@@ -19,11 +20,11 @@ export default function Gallery({
   items,
   variant,
 }: GalleryProps) {
-  const [activeCategory, setActiveCategory] = useState("Todos");
+  const [activeCategory, setActiveCategory] = useState(contentData.common.allCategories);
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
   const categories = [
-    "Todos",
+    contentData.common.allCategories,
     ...new Set(
       items
         .map((item) => item.category)
@@ -32,7 +33,7 @@ export default function Gallery({
   ];
 
   const filteredItems =
-    activeCategory === "Todos"
+    activeCategory === contentData.common.allCategories
       ? items
       : items.filter((item) => item.category === activeCategory);
 
@@ -93,7 +94,7 @@ export default function Gallery({
             >
               <img
                 src={item.image}
-                alt={item.title ?? `Imagen ${item.id}`}
+                alt={item.title ?? contentData.common.imageAlt(item.id)}
                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
             </FadeIn>
@@ -125,7 +126,7 @@ export default function Gallery({
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
               src={selectedImage.image}
-              alt={selectedImage.title ?? `Imagen ${selectedImage.id}`}
+              alt={selectedImage.title ?? contentData.common.imageAlt(selectedImage.id)}
               className="max-h-[90vh] max-w-[90vw] object-contain"
               onClick={(e) => e.stopPropagation()}
             />

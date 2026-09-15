@@ -1,5 +1,6 @@
 import { FaInstagramSquare, FaWhatsappSquare } from "react-icons/fa";
 import FadeIn from "./FadeIn";
+import { contentData } from "../../data/data";
 
 type SocialButtonProps = {
   type: "instagram" | "whatsapp";
@@ -9,8 +10,8 @@ export default function SocialButton({ type }: SocialButtonProps) {
   const isInstagram = type === "instagram";
 
   const href = isInstagram
-    ? "https://instagram.com/sophiearttattoo"
-    : "https://wa.me/34600000000";
+    ? contentData.userData.instagramUrl
+    : contentData.userData.whatsappUrl;
 
   return (
     <FadeIn>

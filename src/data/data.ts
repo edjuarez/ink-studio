@@ -1,50 +1,367 @@
 export const contentData = {
-    "components": {
-        "hero": {
-            "title": "Sophie art",
-            "subtitle": "tattoo"
-        },
-        "about": {
-            "name": "Artista",
-            "title": "Sofi",
-            "description": ""
-        },
-        "FAQ": [
-            {
-                id: '1',
-                question: '¿Cómo pido un presupuesto o reservo un turno?',
-                answer: 'Puedes completar el formulario de contacto al final de la página o enviarme un mensaje por Instagram. Para darte un presupuesto exacto necesito saber la idea, tamaño aproximado en centímetros y la zona del cuerpo.',
-            },
-            {
-                id: '2',
-                question: '¿Haces diseños personalizados o puedo llevar mi propia idea?',
-                answer: 'El 100% de mis trabajos son diseños autorales y personalizados. Podemos usar referencias que te gusten como punto de partida, pero adaptaré la pieza para que sea única y encaje con la anatomía de tu cuerpo.',
-            },
-            {
-                id: '3',
-                question: '¿Cuáles son las indicaciones antes de la sesión?',
-                answer: 'Es importante descansar bien la noche anterior, mantenerse bien hidratado, comer bien antes de asistir y evitar el consumo de alcohol o medicamentos anticoagulantes 24 horas antes.',
-            },
-            {
-                id: '4',
-                question: '¿Cómo debo cuidar el tatuaje una vez terminado?',
-                answer: 'Al finalizar la sesión te entregaré una guía impresa/digital con los cuidados específicos: uso del parche protector o film, jabón neutro, crema cicatrizante recomendada y precauciones con el sol y el agua.',
-            } 
-        ]
+  site: {
+    name: "Sophie Art",
+    tagline: "TATTOO",
+    fullName: "Sophie Art Tattoo",
+  },
+  userData: {
+    phone: "+34 600 000 000",
+    phoneRaw: "34600000000",
+    whatsappUrl: "https://wa.me/34600000000",
+    email: "hola@sophiearttattoo.com",
+    instagramHandle: "@sophiearttattoo",
+    instagramUrl: "https://instagram.com/sophiearttattoo",
+    location: "Barcelona, España",
+    schedule: {
+      days: "Lunes — Viernes",
+      hours: "10:00 — 19:00",
     },
-    "navigation": [
-        { name: 'Inicio', href: '/' },
-        { name: 'Tatuajes', href: '/portfolio' },
-        { name: 'Diseños', href: '/diseños' },
-        { name: 'Prints', href: '/prints' },
-        { name: 'Artista', href: '/artista' },
-        { name: 'Cita', href: '/contacto' }
-    ],
-    userData: {
-        phone: "",
-        email: "",
-        instagram: "@sophiearttattoo",
-        instagramUrl: "https://www.instagram.com/sophiearttattoo/",
-        location: "Barcelona, España"
-    }
-}
+  },
+  buttons: {
+    bookAppointment: "Agendar cita",
+    seeDesigns: "Ver diseños",
+    seePrints: "Ver prints",
+    followInstagram: "Seguir en Instagram",
+    whatsapp: "WhatsApp",
+    instagram: "Instagram",
+    send: "Enviar",
+    sending: "Enviando...",
+    openMenu: "Abrir menú de navegación",
+    goNextSection: "Ir a la siguiente sección",
+    contactWhatsapp: "Contactar por WhatsApp",
+  },
+  common: {
+    allCategories: "Todos",
+    imageAlt: (id: number) => `Imagen ${id}`,
+    printAlt: (n: number) => `Print ${n}`,
+  },
+  navigation: [
+    { name: "Inicio", href: "/" },
+    { name: "Tatuajes", href: "/portfolio" },
+    { name: "Diseños", href: "/diseños" },
+    { name: "Prints", href: "/prints" },
+    { name: "Artista", href: "/artista" },
+    { name: "Cita", href: "/contacto" },
+  ],
+  sections: {
+    hero: {
+      title: "Sophie Art",
+      subtitle: "t · a · t · t · o · o",
+      backgroundAlt: "Fondo del hero",
+    },
+    estilos: {
+      eyebrow: "Tattoo Artist · Barcelona",
+      title: "Tatuajes & Prints",
+      styles: ["Tradicional", "Ornamental", "Linework", "OpArt"],
+      separators: ["✦", "◇", "✦"],
+    },
+    about: {
+      eyebrow: "Artista",
+      title: "Sofi",
+      tagline: "✦ Tradicional · Ornamental · Linework · OpArt ✦",
+      paragraphs: [
+        {
+          lead: "Especializado en técnicas de ",
+          highlights: ["Blackwork", "Fine Line"],
+          tail: " y proyectos autorales. Concibo el tatuaje no solo como una ilustración, sino como una extensión de la anatomía e identidad de cada persona.",
+        },
+        {
+          lead: "Mi proceso es totalmente personalizado: desde la idea inicial y el diseño a medida, hasta la ejecución cuidando cada detalle de contraste, trazo y curación a largo plazo.",
+          highlights: [],
+          tail: "",
+        },
+      ],
+      portraitAlt: "Retrato del tatuador",
+    },
+    homeGallery: {
+      eyebrow: "Portafolio Seleccionado",
+      title: "Trabajos Recientes",
+      works: [
+        {
+          id: 1,
+          title: "Serpiente & Peonía",
+          style: "Blackwork",
+          image: "portfolioGallery/portfolio-18.jpg",
+        },
+        {
+          id: 2,
+          title: "Retrato Botánico",
+          style: "Fine Line",
+          image: "portfolioGallery/portfolio-2.webp",
+        },
+        {
+          id: 3,
+          title: "Geometría Sagrada",
+          style: "Dotwork",
+          image: "portfolioGallery/portfolio-3.webp",
+        },
+        {
+          id: 4,
+          title: "Daga Minimalista",
+          style: "Microrealismo",
+          image: "portfolioGallery/portfolio-4.webp",
+        },
+        {
+          id: 5,
+          title: "Dragón Japonés",
+          style: "Custom Blackwork",
+          image: "portfolioGallery/portfolio-5.jpg",
+        },
+        {
+          id: 6,
+          title: "Composición Floral",
+          style: "Fine Line",
+          image: "portfolioGallery/portfolio-6.jpg",
+        },
+      ],
+    },
+    printsSection: {
+      eyebrow: "Obra gráfica",
+      title: "Prints",
+      description:
+        "Ilustraciones y piezas originales que exploran mi trabajo más allá del tatuaje.",
+      images: ["/prints/print-1.jpg", "/prints/print-2.jpg", "/prints/print-3.jpg"],
+    },
+    social: {
+      eyebrow: "Redes sociales",
+      description:
+        "Seguime en redes para ver mis últimos trabajos, nuevos diseños y todo lo que voy creando. Publico contenido constantemente y comparto nuevos tatuajes, ideas e inspiración.",
+      images: [
+        { src: "/social/social-1.webp", alt: "Sophie Art Tattoo" },
+        { src: "/social/social-2.webp", alt: "Sophie Art Tattoo" },
+      ],
+    },
+    contact: {
+      eyebrow: "Contacto",
+      titleLine1: "¿Tienes una idea",
+      titleLine2: "en mente?",
+      description:
+        "Si tienes una idea para un tatuaje, quieres personalizar un diseño o simplemente quieres contarme lo que tienes en mente, escríbeme. Cuéntame tu idea y nos ponemos en contacto para hablar sobre tu proyecto.",
+      details: {
+        phone: "Teléfono",
+        instagram: "Instagram",
+        location: "Ubicación",
+      },
+    },
+    faq: {
+      eyebrow: "Resolviendo dudas",
+      title: "Preguntas Frecuentes",
+      items: [
+        {
+          id: '1',
+          question: '¿Cómo pido un presupuesto o reservo un turno?',
+          answer:
+            'Puedes completar el formulario de contacto al final de la página o enviarme un mensaje por Instagram. Para darte un presupuesto exacto necesito saber la idea, tamaño aproximado en centímetros y la zona del cuerpo.',
+        },
+        {
+          id: '2',
+          question: '¿Haces diseños personalizados o puedo llevar mi propia idea?',
+          answer:
+            'El 100% de mis trabajos son diseños autorales y personalizados. Podemos usar referencias que te gusten como punto de partida, pero adaptaré la pieza para que sea única y encaje con la anatomía de tu cuerpo.',
+        },
+        {
+          id: '3',
+          question: '¿Cuáles son las indicaciones antes de la sesión?',
+          answer:
+            'Es importante descansar bien la noche anterior, mantenerse bien hidratado, comer bien antes de asistir y evitar el consumo de alcohol o medicamentos anticoagulantes 24 horas antes.',
+        },
+        {
+          id: '4',
+          question: '¿Cómo debo cuidar el tatuaje una vez terminado?',
+          answer:
+            'Al finalizar la sesión te entregaré una guía impresa/digital con los cuidados específicos: uso del parche protector o film, jabón neutro, crema cicatrizante recomendada y precauciones con el sol y el agua.',
+        },
+      ],
+    },
+    footer: {
+      description:
+        "Artista de tatuajes en Barcelona. Diseños personalizados pensados para cada persona y su propia forma de expresión.",
+      navTitle: "Navegación",
+      policiesTitle: "Políticas",
+      infoTitle: "Información",
+      policies: [
+        { name: "Política de privacidad", href: "/privacidad" },
+        { name: "Política de cookies", href: "/cookies" },
+        { name: "Aviso legal", href: "/aviso-legal" },
+      ],
+      copyright: (year: number) =>
+        `© ${year} ${contentData.site.fullName}. Todos los derechos reservados.`,
+      credit: "Hecho por Tuchidigital",
+    },
+  },
+  pages: {
+    prints: {
+      title: "Prints",
+      description:
+        "Una selección de prints creados por Sophie, disponibles para tatuar y adaptar a cada persona.",
+      items: [
+        { id: 1, image: "/printsGallery/print-1.webp", title: "Serpiente", category: "Ornamental" },
+        { id: 2, image: "/printsGallery/print-2.webp", title: "Flor", category: "Linework" },
+        { id: 3, image: "/printsGallery/print-3.webp", title: "Daga", category: "Tradicional" },
+        { id: 4, image: "/printsGallery/print-4.webp", title: "Composición", category: "Ornamental" },
+        { id: 5, image: "/printsGallery/print-5.webp", title: "Figura", category: "OpArt" },
+        { id: 6, image: "/printsGallery/print-6.webp", title: "Rosa", category: "Linework" },
+        { id: 7, image: "/printsGallery/print-7.webp", title: "Rosa", category: "Linework" },
+        { id: 8, image: "/printsGallery/print-8.webp", title: "Rosa", category: "Linework" },
+        { id: 9, image: "/printsGallery/print-9.webp", title: "Rosa", category: "Linework" },
+        { id: 10, image: "/printsGallery/print-10.webp", title: "Rosa", category: "Linework" },
+      ],
+    },
+    portfolio: {
+      title: "Portfolio",
+      items: [
+        { id: 2, image: "/portfolioGallery/portfolio-2.webp" },
+        { id: 3, image: "/portfolioGallery/portfolio-3.webp" },
+        { id: 4, image: "/portfolioGallery/portfolio-4.webp" },
+        { id: 5, image: "/portfolioGallery/portfolio-5.jpg" },
+        { id: 6, image: "/portfolioGallery/portfolio-6.jpg" },
+        { id: 7, image: "/portfolioGallery/portfolio-7.webp" },
+        { id: 8, image: "/portfolioGallery/portfolio-8.webp" },
+        { id: 9, image: "/portfolioGallery/portfolio-9.webp" },
+        { id: 10, image: "/portfolioGallery/portfolio-10.jpg" },
+        { id: 11, image: "/portfolioGallery/portfolio-11.jpg" },
+        { id: 12, image: "/portfolioGallery/portfolio-12.jpg" },
+        { id: 13, image: "/portfolioGallery/portfolio-13.webp" },
+        { id: 14, image: "/portfolioGallery/portfolio-14.jpg" },
+        { id: 15, image: "/portfolioGallery/portfolio-15.jpg" },
+        { id: 16, image: "/portfolioGallery/portfolio-16.jpg" },
+        { id: 17, image: "/portfolioGallery/portfolio-17.jpg" },
+        { id: 18, image: "/portfolioGallery/portfolio-18.jpg" },
+        { id: 1, image: "/portfolioGallery/portfolio-19.jpg" },
+        { id: 19, image: "/portfolioGallery/portfolio-1.webp" },
+        { id: 20, image: "/portfolioGallery/portfolio-20.jpg" },
+        { id: 21, image: "/portfolioGallery/portfolio-21.jpg" },
+        { id: 22, image: "/portfolioGallery/portfolio-22.jpg" },
+        { id: 23, image: "/portfolioGallery/portfolio-23.jpg" },
+        { id: 24, image: "/portfolioGallery/portfolio-24.jpg" },
+        { id: 25, image: "/portfolioGallery/portfolio-25.jpg" },
+        { id: 26, image: "/portfolioGallery/portfolio-26.jpg" },
+        { id: 27, image: "/portfolioGallery/portfolio-27.jpg" },
+        { id: 28, image: "/portfolioGallery/portfolio-28.jpg" },
+        { id: 29, image: "/portfolioGallery/portfolio-29.jpg" },
+        { id: 30, image: "/portfolioGallery/portfolio-30.jpg" },
+        { id: 31, image: "/portfolioGallery/portfolio-31.webp" },
+        { id: 32, image: "/portfolioGallery/portfolio-32.jpg" },
+        { id: 33, image: "/portfolioGallery/portfolio-33.jpg" },
+        { id: 34, image: "/portfolioGallery/portfolio-34.jpg" },
+        { id: 35, image: "/portfolioGallery/portfolio-35.jpg" },
+        { id: 36, image: "/portfolioGallery/portfolio-36.webp" },
+        { id: 37, image: "/portfolioGallery/portfolio-37.jpg" },
+        { id: 38, image: "/portfolioGallery/portfolio-38.jpg" },
+        { id: 39, image: "/portfolioGallery/portfolio-39.webp" },
+        { id: 40, image: "/portfolioGallery/portfolio-40.webp" },
+      ],
+    },
+    designs: {
+      title: "Diseños",
+      description:
+        "Una selección de diseños creados por Sophie, disponibles para tatuar y adaptar a cada persona.",
+      items: [
+        { id: 1, image: "/designsGallery/opticArt/design-1.webp", category: "opticArt" },
+        { id: 2, image: "/designsGallery/opticArt/design-2.webp", category: "opticArt" },
+        { id: 3, image: "/designsGallery/opticArt/design-3.webp", category: "opticArt" },
+        { id: 4, image: "/designsGallery/opticArt/design-4.webp", category: "opticArt" },
+        { id: 5, image: "/designsGallery/opticArt/design-5.webp", category: "opticArt" },
+        { id: 6, image: "/designsGallery/opticArt/design-6.webp", category: "opticArt" },
+        { id: 7, image: "/designsGallery/opticArt/design-7.webp", category: "opticArt" },
+        { id: 8, image: "/designsGallery/opticArt/design-8.webp", category: "opticArt" },
+        { id: 9, image: "/designsGallery/opticArt/design-9.webp", category: "opticArt" },
+        { id: 10, image: "/designsGallery/opticArt/design-10.webp", category: "opticArt" },
+        { id: 11, image: "/designsGallery/opticArt/design-11.webp", category: "opticArt" },
+        { id: 12, image: "/designsGallery/opticArt/design-12.webp", category: "opticArt" },
+        { id: 13, image: "/designsGallery/opticArt/design-13.webp", category: "opticArt" },
+        { id: 14, image: "/designsGallery/opticArt/design-14.webp", category: "opticArt" },
+        { id: 15, image: "/designsGallery/opticArt/design-15.webp", category: "opticArt" },
+        { id: 16, image: "/designsGallery/opticArt/design-16.webp", category: "opticArt" },
+        { id: 17, image: "/designsGallery/opticArt/design-17.webp", category: "opticArt" },
+        { id: 18, image: "/designsGallery/ornamental/design-1.webp", category: "ornamental" },
+        { id: 19, image: "/designsGallery/ornamental/design-2.webp", category: "ornamental" },
+        { id: 20, image: "/designsGallery/ornamental/design-3.webp", category: "ornamental" },
+        { id: 21, image: "/designsGallery/ornamental/design-4.webp", category: "ornamental" },
+        { id: 22, image: "/designsGallery/ornamental/design-5.webp", category: "ornamental" },
+        { id: 23, image: "/designsGallery/ornamental/design-6.webp", category: "ornamental" },
+        { id: 24, image: "/designsGallery/ornamental/design-7.webp", category: "ornamental" },
+        { id: 25, image: "/designsGallery/ornamental/design-8.webp", category: "ornamental" },
+        { id: 26, image: "/designsGallery/ornamental/design-9.webp", category: "ornamental" },
+        { id: 27, image: "/designsGallery/ornamental/design-10.webp", category: "ornamental" },
+        { id: 28, image: "/designsGallery/ornamental/design-11.webp", category: "ornamental" },
+        { id: 29, image: "/designsGallery/ornamental/design-12.jpg", category: "ornamental" },
+        { id: 30, image: "/designsGallery/ornamental/design-13.jpg", category: "ornamental" },
+        { id: 31, image: "/designsGallery/tradicional/design-1.webp", category: "tradicional" },
+        { id: 32, image: "/designsGallery/tradicional/design-2.webp", category: "tradicional" },
+        { id: 33, image: "/designsGallery/tradicional/design-3.webp", category: "tradicional" },
+        { id: 34, image: "/designsGallery/tradicional/design-4.jpg", category: "tradicional" },
+        { id: 35, image: "/designsGallery/tradicional/design-5.webp", category: "tradicional" },
+        { id: 36, image: "/designsGallery/tradicional/design-6.webp", category: "tradicional" },
+        { id: 37, image: "/designsGallery/tradicional/design-7.webp", category: "tradicional" },
+        { id: 38, image: "/designsGallery/tradicional/design-8.webp", category: "tradicional" },
+        { id: 39, image: "/designsGallery/tradicional/design-9.webp", category: "tradicional" },
+        { id: 40, image: "/designsGallery/tradicional/design-10.webp", category: "tradicional" },
+      ],
+    },
+  },
+  form: {
+    fields: {
+      name: {
+        label: "Nombre",
+        placeholder: "Tu nombre",
+        required: "El nombre es obligatorio",
+      },
+      email: {
+        label: "Email",
+        placeholder: "tu@email.com",
+        required: "El email es obligatorio",
+        invalid: "Introduce un email válido",
+      },
+      phone: {
+        label: "WhatsApp / Teléfono",
+        placeholder: "+34 600 000 000",
+      },
+      idea: {
+        label: "Cuéntame tu idea",
+        placeholder:
+          "Cuéntame qué tatuaje tienes en mente, qué significa para ti y cualquier detalle que quieras compartir...",
+        required: "Cuéntame un poco sobre tu idea",
+      },
+      placement: {
+        label: "Zona del cuerpo",
+        placeholder: "Brazo, espalda, pierna...",
+      },
+      size: {
+        label: "Tamaño aproximado",
+        placeholder: "Ej. 10 cm",
+      },
+      style: {
+        label: "Estilo",
+      },
+      budget: {
+        label: "Presupuesto aproximado",
+      },
+      references: {
+        title: "Imágenes de referencia",
+        addText: "Añadir imágenes",
+        helper: "Puedes subir referencias, bocetos o imágenes de inspiración.",
+      },
+    },
+    options: {
+      style: [
+        { value: "", label: "Selecciona un estilo", disabled: true },
+        { value: "fine-line", label: "Fine Line" },
+        { value: "blackwork", label: "Blackwork" },
+        { value: "ornamental", label: "Ornamental" },
+        { value: "dotwork", label: "Dotwork" },
+        { value: "microrealism", label: "Microrealismo" },
+        { value: "other", label: "Otro" },
+      ],
+      budget: [
+        { value: "", label: "Selecciona un rango", disabled: true },
+        { value: "under-150", label: "Menos de 150 €" },
+        { value: "150-300", label: "150 € – 300 €" },
+        { value: "300-500", label: "300 € – 500 €" },
+        { value: "500-plus", label: "Más de 500 €" },
+      ],
+    },
+    helperText:
+      "Te responderé lo antes posible para hablar sobre tu idea y disponibilidad.",
+  },
+};

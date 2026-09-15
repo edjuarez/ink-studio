@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
-import {contentData} from '../../data/data';
+import { contentData } from '../../data/data';
 import FadeIn from '../ui/FadeIn';
 
-export default function FAQ({ items = contentData.components.FAQ}) {
+export default function FAQ({ items = contentData.sections.faq.items }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -15,10 +15,10 @@ export default function FAQ({ items = contentData.components.FAQ}) {
       <div className="mx-auto max-w-3xl">
         <FadeIn className="mb-16 text-center">
           <p className="section-name">
-            Resolviendo dudas
+            {contentData.sections.faq.eyebrow}
           </p>
           <h2 className="section-title-secondary">
-            Preguntas Frecuentes
+            {contentData.sections.faq.title}
           </h2>
         </FadeIn>
 
@@ -27,7 +27,7 @@ export default function FAQ({ items = contentData.components.FAQ}) {
             const isOpen = openIndex === index;
 
             return (
-              <div key={item.id || index} className="py-6 px-6ñ">
+              <div key={item.id || index} className="py-6">
                 <button
                   type="button"
                   onClick={() => toggleFAQ(index)}

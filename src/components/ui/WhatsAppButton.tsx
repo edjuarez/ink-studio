@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
+import { contentData } from "../../data/data";
 
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false);
@@ -29,10 +30,10 @@ export default function WhatsAppButton() {
     <AnimatePresence>
       {visible && (
         <motion.a
-          href="https://wa.me/34600000000"
+          href={contentData.userData.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Contactar por WhatsApp"
+          aria-label={contentData.buttons.contactWhatsapp}
           initial={prefersReduced ? { opacity: 1 } : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           exit={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 16 }}

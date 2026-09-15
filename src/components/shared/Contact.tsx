@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import FadeIn from "../ui/FadeIn";
 import ContactForm from "./ContactForm";
+import { contentData } from "../../data/data";
 
 export default function Contact() {
   return (
@@ -13,28 +14,25 @@ export default function Contact() {
         <FadeIn className="flex flex-col">
           <div>
             <p className="section-name">
-              Contacto
+              {contentData.sections.contact.eyebrow}
             </p>
             <h2 className="section-title-secondary">
-              ¿Tienes una idea <br /> en mente?
+              {contentData.sections.contact.titleLine1} <br /> {contentData.sections.contact.titleLine2}
             </h2>
             <p className="section-paragraph-primary">
-              Si tienes una idea para un tatuaje, quieres personalizar un diseño
-              o simplemente quieres contarme lo que tienes en mente, escríbeme.
-              Cuéntame tu idea y nos ponemos en contacto para hablar sobre tu
-              proyecto.
+              {contentData.sections.contact.description}
             </p>
           </div>
 
           <div className="mt-12 space-y-8">
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/34600000000"
+              href={contentData.userData.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-pointer group inline-flex items-center gap-3 border border-neutral-900 px-6 py-3.5 text-xs uppercase tracking-[0.18em] transition-all duration-300 hover:bg-neutral-900 hover:text-[#E8E8E8]"
             >
-              WhatsApp
+              {contentData.buttons.whatsapp}
               <ArrowUpRight
                 size={16}
                 className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
@@ -44,26 +42,26 @@ export default function Contact() {
             {/* Contact Details */}
             <div className="space-y-3 text-sm text-neutral-700">
               <p>
-                <span className="text-neutral-400">Teléfono</span>
+                <span className="text-neutral-400">{contentData.sections.contact.details.phone}</span>
                 <br />
-                +34 600 000 000
+                {contentData.userData.phone}
               </p>
               <p>
-                <span className="text-neutral-400">Instagram</span>
+                <span className="text-neutral-400">{contentData.sections.contact.details.instagram}</span>
                 <br />
                 <a
-                  href="https://instagram.com"
+                  href={contentData.userData.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-neutral-500"
                 >
-                  @sophiearttattoo
+                  {contentData.userData.instagramHandle}
                 </a>
               </p>
               <p>
-                <span className="text-neutral-400">Ubicación</span>
+                <span className="text-neutral-400">{contentData.sections.contact.details.location}</span>
                 <br />
-                Barcelona, España
+                {contentData.userData.location}
               </p>
             </div>
           </div>

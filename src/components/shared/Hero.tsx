@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaWhatsappSquare, FaInstagramSquare } from "react-icons/fa";
 import FadeIn from "../ui/FadeIn";
+import { contentData } from "../../data/data";
 
 export default function Hero() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -57,7 +58,7 @@ export default function Hero() {
       >
         <img
           src="bg.webp"
-          alt=""
+          alt={contentData.sections.hero.backgroundAlt}
           className="absolute h-full w-full object-cover"
         />
       </div>
@@ -81,11 +82,11 @@ export default function Hero() {
               transition: "text-shadow 0.15s ease-out",
             }}
           >
-            Sophie Art
+            {contentData.sections.hero.title}
           </h1>
 
           <p className="font-display text-[5rem] text-neutral-800">
-            t · a · t · t · o · o
+            {contentData.sections.hero.subtitle}
           </p>
 
           {/* Actions */}
@@ -100,7 +101,7 @@ export default function Hero() {
                 <span className="absolute inset-0 origin-left scale-x-0 bg-neutral-900 transition-transform duration-500 group-hover:scale-x-100" />
 
                 <span className="text-white relative z-10 transition-colors duration-500 group-hover:text-[#E8E8E8]">
-                  Agendar cita
+                  {contentData.buttons.bookAppointment}
                 </span>
               </a>
                   
@@ -110,7 +111,7 @@ export default function Hero() {
                   </ActionButton> */}
             <div className="flex flex-row items-center gap-3">
               <a
-                href="https://wa.me/34600000000"
+                href={contentData.userData.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-neutral-700 hover:text-neutral-900 transition-colors duration-500"
@@ -118,7 +119,7 @@ export default function Hero() {
                 <FaWhatsappSquare size={50} />
               </a>
               <a
-                href="https://instagram.com/sophiearttattoo"
+                href={contentData.userData.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-neutral-700 hover:text-neutral-900 transition-colors duration-500"

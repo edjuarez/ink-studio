@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { contentData } from "../../data/data";
 
 type ContactFormData = {
   name: string;
@@ -49,15 +50,15 @@ export default function ContactForm() {
             htmlFor="name"
             className="section-form-label"
           >
-            Nombre
+            {contentData.form.fields.name.label}
           </label>
           <input
             id="name"
             type="text"
-            placeholder="Tu nombre"
+            placeholder={contentData.form.fields.name.placeholder}
             className="border-b border-neutral-400 bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-neutral-400 focus:border-neutral-900"
             {...register("name", {
-              required: "El nombre es obligatorio",
+              required: contentData.form.fields.name.required,
             })}
           />
           {errors.name && (
@@ -72,18 +73,18 @@ export default function ContactForm() {
             htmlFor="email"
             className="section-form-label"
           >
-            Email
+            {contentData.form.fields.email.label}
           </label>
           <input
             id="email"
             type="email"
-            placeholder="tu@email.com"
+            placeholder={contentData.form.fields.email.placeholder}
             className="border-b border-neutral-400 bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-neutral-400 focus:border-neutral-900"
             {...register("email", {
-              required: "El email es obligatorio",
+              required: contentData.form.fields.email.required,
               pattern: {
                 value: /^\S+@\S+\.\S+$/,
-                message: "Introduce un email válido",
+                message: contentData.form.fields.email.invalid,
               },
             })}
           />
@@ -101,12 +102,12 @@ export default function ContactForm() {
           htmlFor="phone"
           className="section-form-label"
         >
-          WhatsApp / Teléfono
+          {contentData.form.fields.phone.label}
         </label>
         <input
           id="phone"
           type="tel"
-          placeholder="+34 600 000 000"
+          placeholder={contentData.form.fields.phone.placeholder}
           className="border-b border-neutral-400 bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-neutral-400 focus:border-neutral-900"
           {...register("phone")}
         />
@@ -118,15 +119,15 @@ export default function ContactForm() {
           htmlFor="idea"
           className="section-form-label"
         >
-          Cuéntame tu idea
+          {contentData.form.fields.idea.label}
         </label>
         <textarea
           id="idea"
           rows={5}
-          placeholder="Cuéntame qué tatuaje tienes en mente, qué significa para ti y cualquier detalle que quieras compartir..."
+          placeholder={contentData.form.fields.idea.placeholder}
           className="resize-none border-b border-neutral-400 bg-transparent px-0 py-3 text-sm leading-7 outline-none transition-colors placeholder:text-neutral-400 focus:border-neutral-900"
           {...register("idea", {
-            required: "Cuéntame un poco sobre tu idea",
+            required: contentData.form.fields.idea.required,
           })}
         />
         {errors.idea && (
@@ -143,12 +144,12 @@ export default function ContactForm() {
             htmlFor="placement"
             className="section-form-label"
           >
-            Zona del cuerpo
+            {contentData.form.fields.placement.label}
           </label>
           <input
             id="placement"
             type="text"
-            placeholder="Brazo, espalda, pierna..."
+            placeholder={contentData.form.fields.placement.placeholder}
             className="border-b border-neutral-400 bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-neutral-400 focus:border-neutral-900"
             {...register("placement")}
           />
@@ -159,12 +160,12 @@ export default function ContactForm() {
             htmlFor="size"
             className="section-form-label"
           >
-            Tamaño aproximado
+            {contentData.form.fields.size.label}
           </label>
           <input
             id="size"
             type="text"
-            placeholder="Ej. 10 cm"
+            placeholder={contentData.form.fields.size.placeholder}
             className="border-b border-neutral-400 bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-neutral-400 focus:border-neutral-900"
             {...register("size")}
           />
@@ -178,7 +179,7 @@ export default function ContactForm() {
             htmlFor="style"
             className="section-form-label"
           >
-            Estilo
+            {contentData.form.fields.style.label}
           </label>
           <select
             id="style"
@@ -186,15 +187,15 @@ export default function ContactForm() {
             className="border-b border-neutral-400 bg-transparent px-0 py-3 text-sm outline-none focus:border-neutral-900"
             {...register("style")}
           >
-            <option value="" disabled>
-              Selecciona un estilo
-            </option>
-            <option value="fine-line">Fine Line</option>
-            <option value="blackwork">Blackwork</option>
-            <option value="ornamental">Ornamental</option>
-            <option value="dotwork">Dotwork</option>
-            <option value="microrealism">Microrealismo</option>
-            <option value="other">Otro</option>
+            {contentData.form.options.style.map((option) => (
+              <option
+                key={option.value}
+                value={option.value}
+                disabled={option.disabled}
+              >
+                {option.label}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -203,7 +204,7 @@ export default function ContactForm() {
             htmlFor="budget"
             className="section-form-label"
           >
-            Presupuesto aproximado
+            {contentData.form.fields.budget.label}
           </label>
           <select
             id="budget"
@@ -211,13 +212,15 @@ export default function ContactForm() {
             className="border-b border-neutral-400 bg-transparent px-0 py-3 text-sm outline-none focus:border-neutral-900"
             {...register("budget")}
           >
-            <option value="" disabled>
-              Selecciona un rango
-            </option>
-            <option value="under-150">Menos de 150 €</option>
-            <option value="150-300">150 € – 300 €</option>
-            <option value="300-500">300 € – 500 €</option>
-            <option value="500-plus">Más de 500 €</option>
+            {contentData.form.options.budget.map((option) => (
+              <option
+                key={option.value}
+                value={option.value}
+                disabled={option.disabled}
+              >
+                {option.label}
+              </option>
+            ))}
           </select>
         </div>
       </div>
@@ -228,16 +231,16 @@ export default function ContactForm() {
           htmlFor="references"
           className="section-form-label"
         >
-          Imágenes de referencia
+          {contentData.form.fields.references.title}
         </label>
         <label
           htmlFor="references"
           className="flex min-h-32 cursor-pointer items-center justify-center border border-dashed border-neutral-400 px-6 py-8 text-center transition-colors hover:border-neutral-900"
         >
           <div>
-            <p className="text-sm text-neutral-700">Añadir imágenes</p>
+            <p className="text-sm text-neutral-700">{contentData.form.fields.references.addText}</p>
             <p className="mt-2 text-xs text-neutral-500">
-              Puedes subir referencias, bocetos o imágenes de inspiración.
+              {contentData.form.fields.references.helper}
             </p>
           </div>
           <input
@@ -254,15 +257,14 @@ export default function ContactForm() {
       {/* Submit */}
       <div className="flex flex-col gap-6 border-t border-neutral-300 pt-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-xs text-xs leading-5 text-neutral-500">
-          Te responderé lo antes posible para hablar sobre tu idea y
-          disponibilidad.
+          {contentData.form.helperText}
         </p>
         <button
           type="submit"
           disabled={isSubmitting}
           className="cursor-pointer group flex items-center gap-3 border border-neutral-900 px-6 py-3.5 text-xs uppercase tracking-[0.18em] transition-all duration-300 hover:bg-neutral-900 hover:text-[#E8E8E8] disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {isSubmitting ? "Enviando..." : "Enviar"}
+          {isSubmitting ? contentData.buttons.sending : contentData.buttons.send}
           <ArrowUpRight
             size={16}
             className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
