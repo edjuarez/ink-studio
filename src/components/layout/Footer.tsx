@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import {contentData} from "../../data/data";
 
 export default function Footer() {
   return (
@@ -32,47 +33,15 @@ export default function Footer() {
             </p>
 
             <nav className="flex flex-col items-start gap-3 text-sm">
-              <a
-                href="/tatuajes"
-                className="transition-opacity hover:opacity-50"
-              >
-                Tatuajes
-              </a>
-
-              <a
-                href="/disenos"
-                className="transition-opacity hover:opacity-50"
-              >
-                Diseños
-              </a>
-
-              <a
-                href="/prints"
-                className="transition-opacity hover:opacity-50"
-              >
-                Prints
-              </a>
-
-              <a
-                href="/sobre-mi"
-                className="transition-opacity hover:opacity-50"
-              >
-                Sobre mí
-              </a>
-
-              <a
-                href="#faq"
-                className="transition-opacity hover:opacity-50"
-              >
-                FAQ
-              </a>
-
-              <a
-                href="#contacto"
-                className="transition-opacity hover:opacity-50"
-              >
-                Contacto
-              </a>
+              {contentData.navigation.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="transition-opacity hover:opacity-50"
+                >
+                  {link.name}
+                </a>
+              ))}
             </nav>
           </div>
 

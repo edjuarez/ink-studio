@@ -83,7 +83,7 @@ export default function Navbar() {
                 ${
                   scrolled || !isHome
                     ? "text-xs text-white hover:text-neutral-500"
-                    : "text-[1.2rem] text-neutral-900 hover:text-[#f4f1eb] underline-offset-4 hover:underline"
+                    : "text-[1rem] text-neutral-900 hover:text-[#f4f1eb] underline-offset-4 hover:underline"
                 }
               `}
             >

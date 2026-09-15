@@ -2,9 +2,9 @@ import ActionButton from "../../components/ui/ActionButton";
 import FadeIn from "../ui/FadeIn";
 
 const prints = [
-  "/prints/print_1.jpg",
-  "/prints/print_2.jpg",
-  "/prints/print_3.jpg",
+  "/prints/print-1.jpg",
+  "/prints/print-2.jpg",
+  "/prints/print-3.jpg",
 ];
 
 export default function Prints() {

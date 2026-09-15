@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false);
@@ -37,9 +37,9 @@ export default function WhatsAppButton() {
           animate={{ opacity: 1, y: 0 }}
           exit={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 16 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-neutral-900 text-[#E8E8E8] shadow-lg shadow-black/15 hover:scale-105 hover:bg-neutral-800"
+          className="fixed bottom-6 right-6 z-50 flex h-17 w-17 items-center justify-center rounded-full bg-neutral-700 transition-all transition-100 text-[#E8E8E8] shadow-lg shadow-black/15 hover:scale-105 hover:bg-neutral-800"
         >
-          <MessageCircle size={23} strokeWidth={1.7} />
+          <FaWhatsapp size={40} />
         </motion.a>
       )}
     </AnimatePresence>

@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
+import FadeIn from "../ui/FadeIn";
 
 type GalleryItem = {
   id: number;
   image: string;
-  title: string;
+  title?: string;
   category?: string;
 };
 
@@ -17,6 +20,7 @@ export default function Gallery({
   variant,
 }: GalleryProps) {
   const [activeCategory, setActiveCategory] = useState("Todos");
+  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
   const categories = [
     "Todos",
@@ -78,31 +82,63 @@ export default function Gallery({
 
       <div className={`grid gap-4 ${gridStyles[variant]}`}>
         {filteredItems.map((item) => (
-          <article key={item.id} className="group overflow-hidden">
-            <div
+          <article
+            key={item.id}
+            className="group overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.01]"
+            onClick={() => setSelectedImage(item)}
+          >
+            <FadeIn
               className={`overflow-hidden bg-neutral-200 ${aspectStyles[variant]}`}
             >
               <img
                 src={item.image}
-                alt={item.title}
+                alt={item.title ?? `Imagen ${item.id}`}
                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
-            </div>
-
-            <div className="flex items-center justify-between py-3">
-              <span className="text-[10px] uppercase tracking-[0.15em] text-neutral-800">
-                {item.title}
-              </span>
-
-              {variant === "designs" && item.category && (
-                <span className="text-[9px] uppercase tracking-[0.15em] text-neutral-500">
-                  {item.category}
-                </span>
-              )}
-            </div>
+            </FadeIn>
           </article>
         ))}
       </div>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button
+              type="button"
+              className="absolute top-6 right-6 text-white/80 transition-colors hover:text-white"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X size={32} />
+            </button>
+
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              src={selectedImage.image}
+              alt={selectedImage.title ?? `Imagen ${selectedImage.id}`}
+              className="max-h-[90vh] max-w-[90vw] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            {selectedImage.title && (
+              <div className="absolute bottom-6 left-0 right-0 text-center">
+                <span className="text-sm uppercase tracking-[0.15em] text-white/80">
+                  {selectedImage.title}
+                </span>
+              </div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -7,37 +7,37 @@ const featuredWorks = [
     id: 1,
     title: 'Serpiente & Peonía',
     style: 'Blackwork',
-    image: 'homeGallery/home1.webp',
+    image: 'portfolioGallery/portfolio-18.jpg',
   },
   {
     id: 2,
     title: 'Retrato Botánico',
     style: 'Fine Line',
-    image: 'homeGallery/home2.webp',
+    image: 'portfolioGallery/portfolio-2.webp',
   },
   {
     id: 3,
     title: 'Geometría Sagrada',
     style: 'Dotwork',
-    image: 'homeGallery/home3.webp',
+    image: 'portfolioGallery/portfolio-3.webp',
   },
   {
     id: 4,
     title: 'Daga Minimalista',
     style: 'Microrealismo',
-    image: 'homeGallery/home4.webp',
+    image: 'portfolioGallery/portfolio-4.webp',
   },
   {
     id: 5,
     title: 'Dragón Japonés',
     style: 'Custom Blackwork',
-    image: 'homeGallery/home5.webp',
+    image: 'portfolioGallery/portfolio-5.webp',
   },
   {
     id: 6,
     title: 'Composición Floral',
     style: 'Fine Line',
-    image: 'homeGallery/home6.webp',
+    image: 'portfolioGallery/portfolio-6.webp',
   },
 ];
 
@@ -55,8 +55,7 @@ export default function HomeGallery() {
           </h2>
         </FadeIn>
 
-        {/* Grilla de 6 imágenes */}
-        <FadeIn delay={0.15} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <FadeIn className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {featuredWorks.map((work) => (
             <div
               key={work.id}
@@ -66,7 +65,7 @@ export default function HomeGallery() {
                 <img
                   src={work.image}
                   alt={work.title}
-                  className="saturate-50 contrast-105 transition-all duration-700 group-hover:saturate-100 h-full w-full object-cover duration-1000 ease-out group-hover:scale-105"
+                  className="saturate-80 contrast-105 transition-all duration-700 group-hover:saturate-100 h-full w-full object-cover duration-1000 ease-out group-hover:scale-105"
                   loading="lazy"
                 />
                 {/* <div className="absolute inset-0 bg-neutral-950/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" /> */}
@@ -75,7 +74,7 @@ export default function HomeGallery() {
           ))}
         </FadeIn>
         <div className="flex justify-center">
-            <ActionButton href="/diseños" variant="light">
+            <ActionButton href="/portfolio" variant="light">
               Ver diseños
             </ActionButton>
         </div>

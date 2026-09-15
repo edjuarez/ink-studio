@@ -33,10 +33,11 @@ export const contentData = {
         ]
     },
     "navigation": [
-        { name: 'Home', href: '/' },
-        { name: 'Artista', href: '/artista' },
+        { name: 'Inicio', href: '/' },
+        { name: 'Tatuajes', href: '/portfolio' },
         { name: 'Diseños', href: '/diseños' },
         { name: 'Prints', href: '/prints' },
+        { name: 'Artista', href: '/artista' },
         { name: 'Cita', href: '/contacto' }
     ],
     userData: {

@@ -1,5 +1,18 @@
 @import "tailwindcss";
+#root {
+  --color-background: #e8e7e3;
+  --color-surface: #f1f0ec;
+  --color-text: #252525;
+  --color-muted: #6f6f6b;
+  --color-accent: #8a8278;
 
+  --font-main: "Grenze Gotisch", serif;
+  --font-display: "Bigshot One", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-rye: "Rye", serif;
+  --font-abril: "Abril Fatface", serif;
+  overflow-x: hidden;
+}
 @theme {
   --color-background: #e8e7e3;
   --color-surface: #f1f0ec;

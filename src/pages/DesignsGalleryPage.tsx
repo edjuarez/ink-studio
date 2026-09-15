@@ -45,9 +45,6 @@ export default function DesignsGalleryPage() {
       <section className="mx-auto w-full">
 
         <div className="mb-16 text-center">
-          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-neutral-500">
-            Sophie Art Tattoo
-          </p>
 
           <h1 className="font-display text-5xl text-neutral-900 md:text-7xl">
             Diseños
