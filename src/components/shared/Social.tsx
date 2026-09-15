@@ -32,7 +32,7 @@ export default function Social() {
           <img
             src="/social/social-1.webp"
             alt="Sophie Art Tattoo"
-            className="h-full w-full object-cover saturate-50"
+            className="h-full w-full object-cover saturate-80"
           />
         </div>
 
@@ -40,7 +40,7 @@ export default function Social() {
           <img
             src="/social/social-2.webp"
             alt="Sophie Art Tattoo"
-            className="h-full w-full object-cover saturate-50"
+            className="h-full w-full object-cover saturate-80"
           />
         </div>
       </FadeIn>

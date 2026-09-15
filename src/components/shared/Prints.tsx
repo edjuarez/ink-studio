@@ -25,8 +25,7 @@ export default function Prints() {
               </h2>
 
               <p className="mt-6 text-sm text-neutral-600 md:text-base text-center">
-                Ilustraciones y piezas creadas por Sophie para llevar su trabajo
-                más allá del tatuaje.
+                Ilustraciones y piezas originales que exploran mi trabajo más allá del tatuaje.
               </p>
 
               <ActionButton href="/prints">

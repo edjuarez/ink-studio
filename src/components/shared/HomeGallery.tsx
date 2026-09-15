@@ -30,13 +30,13 @@ const featuredWorks = [
     id: 5,
     title: 'Dragón Japonés',
     style: 'Custom Blackwork',
-    image: 'portfolioGallery/portfolio-5.webp',
+    image: 'portfolioGallery/portfolio-5.jpg',
   },
   {
     id: 6,
     title: 'Composición Floral',
     style: 'Fine Line',
-    image: 'portfolioGallery/portfolio-6.webp',
+    image: 'portfolioGallery/portfolio-6.jpg',
   },
 ];
 

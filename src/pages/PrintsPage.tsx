@@ -1,4 +1,5 @@
 import Gallery from "../components/shared/Gallery";
+import FadeIn from "../components/ui/FadeIn";
 
 const prints = [
   {
@@ -67,7 +68,7 @@ export default function PrintsGalleryPage() {
   return (
     <main className="section-bg-primary">
       <section className="mx-auto w-full">
-        <div className="mb-16 text-center">
+        <FadeIn className="mb-16 text-center">
           <h1 className="font-display text-5xl text-neutral-900 md:text-7xl">
             Prints
           </h1>
@@ -76,7 +77,7 @@ export default function PrintsGalleryPage() {
             Una selección de prints creados por Sophie, disponibles para
             tatuar y adaptar a cada persona.
           </p>
-        </div>
+        </FadeIn>
 
         <Gallery
           items={prints}

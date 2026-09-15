@@ -47,11 +47,19 @@ export default function FAQ({ items = contentData.components.FAQ}) {
                   </span>
                 </button>
 
-                {isOpen && (
-                  <div className="mt-4 pr-8 text-sm leading-relaxed text-neutral-600 sm:text-base">
-                    <p>{item.answer}</p>
-                  </div>
-                )}
+<div
+  className={`grid transition-all duration-500 ease-in-out ${
+    isOpen
+      ? 'grid-rows-[1fr] opacity-100'
+      : 'grid-rows-[0fr] opacity-0'
+  }`}
+>
+  <div className="overflow-hidden">
+    <p className="mt-4 pr-8 text-sm leading-relaxed text-neutral-600 sm:text-base">
+      {item.answer}
+    </p>
+  </div>
+</div>
               </div>
             );
           })}

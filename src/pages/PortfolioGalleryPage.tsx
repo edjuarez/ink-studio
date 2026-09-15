@@ -2,7 +2,7 @@ import Gallery from "../components/shared/Gallery";
 import FadeIn from "../components/ui/FadeIn";
 
 const portfolio = [
-  { id: 1, image: "/portfolioGallery/portfolio-1.webp" },
+  
   { id: 2, image: "/portfolioGallery/portfolio-2.webp" },
   { id: 3, image: "/portfolioGallery/portfolio-3.webp" },
   { id: 4, image: "/portfolioGallery/portfolio-4.webp" },
@@ -20,7 +20,8 @@ const portfolio = [
   { id: 16, image: "/portfolioGallery/portfolio-16.jpg" },
   { id: 17, image: "/portfolioGallery/portfolio-17.jpg" },
   { id: 18, image: "/portfolioGallery/portfolio-18.jpg" },
-  { id: 19, image: "/portfolioGallery/portfolio-19.jpg" },
+  { id: 1, image: "/portfolioGallery/portfolio-19.jpg" },
+  { id: 19, image: "/portfolioGallery/portfolio-1.webp" },
   { id: 20, image: "/portfolioGallery/portfolio-20.jpg" },
   { id: 21, image: "/portfolioGallery/portfolio-21.jpg" },
   { id: 22, image: "/portfolioGallery/portfolio-22.jpg" },

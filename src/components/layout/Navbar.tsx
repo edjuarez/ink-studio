@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { FaWhatsappSquare, FaInstagramSquare } from 'react-icons/fa';
 import { contentData } from '../../data/data';
 import { useLocation, Link } from "react-router-dom";
 
@@ -55,11 +56,11 @@ export default function Navbar() {
           className={`
             flex flex-row leading-none
             transition-all duration-500
-            items-center gap-3.5 justify-center
+            items-center gap-3.5
             ${
               scrolled || !isHome
-                ? 'translate-x-0 opacity-100 text-white'
-                : 'pointer-events-none absolute -translate-x-8 opacity-0'
+                ? 'flex-1 justify-start translate-x-0 opacity-100 text-white'
+                : 'pointer-events-none absolute -translate-x-8 opacity-0 justify-center'
             }
           `}
         >
@@ -91,6 +92,28 @@ export default function Navbar() {
             </Link>
           ))}
         </nav>
+
+        {/* DESKTOP RIGHT BUTTONS */}
+        {scrolled || !isHome ? (
+          <div className="hidden flex-1 items-center justify-end gap-3 md:flex">
+            <a
+              href="https://instagram.com/sophiearttattoo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/90 transition-colors duration-300 hover:text-white"
+            >
+              <FaInstagramSquare size={28} />
+            </a>
+            <a
+              href="https://wa.me/34600000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/90 transition-colors duration-300 hover:text-white"
+            >
+              <FaWhatsappSquare size={28} />
+            </a>
+          </div>
+        ) : null}
 
         {/* MOBILE */}
         <button

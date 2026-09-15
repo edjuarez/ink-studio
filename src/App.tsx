@@ -33,7 +33,7 @@ function App() {
 
       <Footer />
 
-      <ScrollIndicator targetId="" />
+      <ScrollIndicator targetId="home" />
 
       <WhatsAppButton />
     </>

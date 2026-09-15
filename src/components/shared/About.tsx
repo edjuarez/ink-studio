@@ -28,7 +28,7 @@ export default function About() {
             <p className="text-sm tracking-[0.15em] text-muted mt-8">
               ✦ Tradicional · Ornamental · Linework · OpArt ✦
             </p>
-            <div className="max-w-md font-sans mt-8 space-y-4 text-xl leading-relaxed text-neutral-600 sm:text-xl">
+            <div className="max-w-md font-sans mt-8 space-y-4 text-xl leading-relaxed text-neutral-600 sm:text-[1.125rem] sm:leading-relaxed">
               <p>
                 Especializado en técnicas de <strong className="font-medium text-neutral-900">Blackwork</strong>, <strong className="font-medium text-neutral-900">Fine Line</strong> y proyectos autorales. Concibo el tatuaje no solo como una ilustración, sino como una extensión de la anatomía e identidad de cada persona.
               </p>

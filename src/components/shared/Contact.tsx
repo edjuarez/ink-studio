@@ -32,7 +32,7 @@ export default function Contact() {
               href="https://wa.me/34600000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 border border-neutral-900 px-6 py-3.5 text-xs uppercase tracking-[0.18em] transition-all duration-300 hover:bg-neutral-900 hover:text-[#E8E8E8]"
+              className="cursor-pointer group inline-flex items-center gap-3 border border-neutral-900 px-6 py-3.5 text-xs uppercase tracking-[0.18em] transition-all duration-300 hover:bg-neutral-900 hover:text-[#E8E8E8]"
             >
               WhatsApp
               <ArrowUpRight

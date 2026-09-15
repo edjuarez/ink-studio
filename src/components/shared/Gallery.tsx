@@ -37,7 +37,7 @@ export default function Gallery({
       : items.filter((item) => item.category === activeCategory);
 
   const gridStyles = {
-    designs: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5",
+    designs: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4",
     tattoos: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
     prints: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5",
   };
@@ -54,7 +54,7 @@ export default function Gallery({
   return (
     <div className="w-full">
       {showCategories && (
-        <div className="mb-14 flex flex-wrap justify-center gap-x-7 gap-y-4">
+        <div className="mb-10 flex flex-wrap justify-center gap-x-7 gap-y-4">
           {categories.map((category) => {
             const isActive = activeCategory === category;
 
@@ -63,7 +63,7 @@ export default function Gallery({
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`relative pb-2 text-xs uppercase tracking-[0.18em] transition-colors duration-300 ${
+                className={`cursor-pointer relative pb-2 text-[1rem] uppercase tracking-[0.18em] transition-colors duration-300 ${
                   isActive
                     ? "text-neutral-900"
                     : "text-neutral-500 hover:text-neutral-900"
@@ -88,6 +88,7 @@ export default function Gallery({
             onClick={() => setSelectedImage(item)}
           >
             <FadeIn
+              delay={0.1}
               className={`overflow-hidden bg-neutral-200 ${aspectStyles[variant]}`}
             >
               <img
@@ -129,13 +130,13 @@ export default function Gallery({
               onClick={(e) => e.stopPropagation()}
             />
 
-            {selectedImage.title && (
+{/*             {selectedImage.title && (
               <div className="absolute bottom-6 left-0 right-0 text-center">
                 <span className="text-sm uppercase tracking-[0.15em] text-white/80">
                   {selectedImage.title}
                 </span>
               </div>
-            )}
+            )} */}
           </motion.div>
         )}
       </AnimatePresence>
