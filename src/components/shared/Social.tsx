@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import ActionButton from "../ui/ActionButton";
 import FadeIn from "../ui/FadeIn";
 

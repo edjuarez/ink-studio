@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import ScrollIndicator from "../ui/ScrollIndicator";
 import { FaWhatsappSquare, FaInstagramSquare } from "react-icons/fa";
-import ActionButton from "../ui/ActionButton";
 import FadeIn from "../ui/FadeIn";
 
 export default function Hero() {

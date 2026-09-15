@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 type ScrollIndicatorProps = {
@@ -8,32 +7,8 @@ type ScrollIndicatorProps = {
 export default function ScrollIndicator({
   targetId,
 }: ScrollIndicatorProps) {
-  const [visible, setVisible] = useState(true);
+  const visible = true;
   const prefersReduced = useReducedMotion();
-
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    const handleScroll = (): void => {
-      const currentScrollY = window.scrollY;
-
-/*       if (currentScrollY > lastScrollY) {
-        setVisible(false);
-      } else if (currentScrollY < lastScrollY) {
-        setVisible(true);
-      }
- */
-      lastScrollY = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const handleClick = (): void => {
     document.getElementById(targetId)?.scrollIntoView({
