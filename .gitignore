@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .dev.vars
+
+# Wrangler / Miniflare state
+.wrangler

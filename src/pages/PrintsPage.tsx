@@ -1,9 +1,11 @@
 import Gallery from "../components/shared/Gallery";
+import Social from "../components/shared/Social";
 import FadeIn from "../components/ui/FadeIn";
 import { contentData } from "../data/data";
 
 export default function PrintsGalleryPage() {
   return (
+    <>
     <main className="section-bg-primary">
       <section className="mx-auto w-full">
         <FadeIn className="mb-16 text-center">
@@ -21,6 +23,9 @@ export default function PrintsGalleryPage() {
           variant="prints"
         />
       </section>
+      
     </main>
+    <Social />
+    </>
   );
 }
