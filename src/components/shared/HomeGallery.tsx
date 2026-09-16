@@ -26,7 +26,7 @@ export default function HomeGallery() {
                 <img
                   src={work.image}
                   alt={work.title}
-                  className="saturate-80 contrast-105 transition-all duration-700 group-hover:saturate-100 h-full w-full object-cover duration-1000 ease-out group-hover:scale-105"
+                  className="saturate-80 contrast-105 transition-all duration-700 group-hover:saturate-100 h-full w-full object-cover ease-out group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
@@ -35,7 +35,7 @@ export default function HomeGallery() {
         </FadeIn>
         <div className="flex justify-center">
             <ActionButton href="/portfolio" variant="light">
-              {contentData.buttons.seeDesigns}
+              {contentData.buttons.seeWork}
             </ActionButton>
         </div>
       </div>

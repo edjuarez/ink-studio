@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="border-t border-neutral-900/15 bg-[#E8E8E8] text-neutral-900">
       <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 lg:px-12">
         {/* Main footer */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[2fr_0.5fr_0.7fr_1fr] lg:gap-16">
           
           {/* Logo + description */}
           <div className="flex flex-col items-start gap-3">

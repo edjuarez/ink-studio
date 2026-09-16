@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { FaWhatsappSquare, FaInstagramSquare } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import { contentData } from '../../data/data';
 import { useLocation, Link } from "react-router-dom";
 
@@ -64,7 +64,7 @@ export default function Navbar() {
             }
           `}
         >
-<span className="grenze-gotisch-regular text-white font-display text-lg tracking-wider text-neutral-900 sm:text-[1.5rem]">
+          <span className="grenze-gotisch-regular text-white font-display text-lg tracking-wider text-neutral-900 sm:text-[1.5rem]">
             {contentData.site.name}
           </span>
 
@@ -102,7 +102,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="text-white/90 transition-colors duration-300 hover:text-white"
             >
-              <FaInstagramSquare size={28} />
+              <FaInstagram size={28} />
             </a>
             <a
               href={contentData.userData.whatsappUrl}
@@ -110,7 +110,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="text-white/90 transition-colors duration-300 hover:text-white"
             >
-              <FaWhatsappSquare size={28} />
+              <FaWhatsapp size={28} />
             </a>
           </div>
         ) : null}

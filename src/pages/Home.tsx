@@ -6,6 +6,7 @@ import Social from "../components/shared/Social";
 import Contact from "../components/shared/Contact";
 import Estilos from "../components/shared/Estilos";
 import Prints from "../components/shared/Prints";
+import Designs from "../components/shared/Designs";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       </div>
       <Estilos />
       <HomeGallery />
+      <Designs />
       <Prints />
       <About />
       <FAQ />

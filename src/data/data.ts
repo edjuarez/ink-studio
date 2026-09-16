@@ -18,7 +18,8 @@ export const contentData = {
     },
   },
   buttons: {
-    bookAppointment: "Agendar cita",
+    bookAppointment: "pedir cita",
+    seeWork: "Ver tatuajes",
     seeDesigns: "Ver diseños",
     seePrints: "Ver prints",
     followInstagram: "Seguir en Instagram",
@@ -52,8 +53,9 @@ export const contentData = {
     estilos: {
       eyebrow: "Tattoo Artist · Barcelona",
       title: "Tatuajes & Prints",
+      paragraph: "Tatuajes personalizados y piezas originales creadas desde Barcelona.",
       styles: ["Tradicional", "Ornamental", "Linework", "OpArt"],
-      separators: ["✦", "◇", "✦"],
+      separators: ["✦", "◇", "✦", ""],
     },
     about: {
       eyebrow: "Artista",
@@ -114,6 +116,13 @@ export const contentData = {
           image: "portfolioGallery/portfolio-6.jpg",
         },
       ],
+    },
+    designsSection: {
+      eyebrow: "Diseños originales",
+      title: "Diseños",
+      description:
+        "Explora diseños originales y diferentes estilos para encontrar tu próximo tatuaje.",
+      images: ["/designsGallery/opticArt/design-1.webp", "/designsGallery/opticArt/design-2.webp", "/designsGallery/opticArt/design-3.webp"],
     },
     printsSection: {
       eyebrow: "Obra gráfica",

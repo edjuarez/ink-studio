@@ -55,7 +55,7 @@ export default function Gallery({
   return (
     <div className="w-full">
       {showCategories && (
-        <div className="mb-10 flex flex-wrap justify-center gap-x-7 gap-y-4">
+        <FadeIn className="mb-10 flex flex-wrap justify-center gap-x-7 gap-y-4">
           {categories.map((category) => {
             const isActive = activeCategory === category;
 
@@ -78,7 +78,7 @@ export default function Gallery({
               </button>
             );
           })}
-        </div>
+        </FadeIn>
       )}
 
       <div className={`grid gap-4 ${gridStyles[variant]}`}>
