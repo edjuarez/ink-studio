@@ -8,7 +8,7 @@ export default function About() {
     <section id="artista" className="section-bg-primary">
       <div className="mx-auto">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-          <FadeIn className="relative lg:col-span-6">
+          <FadeIn className="relative lg:col-span-6 order-2 md:order-1">
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-neutral-300">
               <img
                 src="artist.webp"
@@ -18,7 +18,7 @@ export default function About() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.15} className="flex flex-col items-start lg:col-span-6 lg:pl-4">
+          <FadeIn delay={0.15} className="flex flex-col items-start lg:col-span-6 lg:pl-4 order-1 md:order-2">
             <p className="section-name">
               {contentData.sections.about.eyebrow}
             </p>
@@ -26,7 +26,7 @@ export default function About() {
             <h2 className="section-title">
               {contentData.sections.about.title}
             </h2>
-            <p className="text-sm tracking-[0.15em] text-muted mt-8">
+            <p className="text-[1rem] tracking-[0.15em] text-muted mt-8">
               {contentData.sections.about.tagline}
             </p>
             <div className="max-w-md font-sans mt-8 space-y-4 text-xl leading-relaxed text-neutral-600 sm:text-[1.125rem] sm:leading-relaxed">

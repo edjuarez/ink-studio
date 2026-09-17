@@ -11,11 +11,11 @@ export default function BookingCta() {
     <FadeIn className="mt-24 flex flex-col items-center border-t border-neutral-300 pt-20 text-center">
       <p className="section-name">{booking.eyebrow}</p>
 
-      <h2 className="font-display text-4xl text-neutral-900 md:text-5xl">
+      <h2 className="section-title-secondary">
         {booking.title}
       </h2>
 
-      <p className="section-paragraph-primary">{booking.description}</p>
+      <p className="section-description-primary">{booking.description}</p>
 
       <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
         <a
