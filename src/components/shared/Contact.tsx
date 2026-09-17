@@ -19,7 +19,7 @@ export default function Contact() {
             <h2 className="section-title-secondary">
               {contentData.sections.contact.titleLine1} <br /> {contentData.sections.contact.titleLine2}
             </h2>
-            <p className="section-paragraph-primary">
+            <p className="section-description-primary text-left">
               {contentData.sections.contact.description}
             </p>
           </div>

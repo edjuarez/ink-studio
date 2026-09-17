@@ -1,5 +1,5 @@
 import ActionButton from "../ui/ActionButton"
-import SocialButton from "../ui/SocialButton";
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 import FadeIn from "../ui/FadeIn";
 import { contentData } from "../../data/data";
 
@@ -49,9 +49,54 @@ export default function About() {
             <ActionButton href="#contacto" variant="light">
               {contentData.buttons.bookAppointment}
             </ActionButton>
-            <div className="mt-8 flex gap-4">
-            <SocialButton type="instagram" />
-            <SocialButton type="whatsapp" />
+            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+              {/* WhatsApp */}
+              <a
+                href={contentData.userData.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="
+                  group flex items-center gap-3
+                  text-neutral-700
+                  transition-colors duration-300
+                  hover:text-neutral-900
+                "
+              >
+                <FaWhatsapp
+                  size={25}
+                  className="transition-transform duration-300 group-hover:-translate-y-0.5"
+                />
+
+                <span className="text-[0.80rem] md:text-[0.75rem] md:font-medium font-bold uppercase tracking-[0.2em]">
+                  WhatsApp
+                </span>
+              </a>
+
+              <span className="hidden h-5 w-px bg-neutral-700/30 sm:block" />
+
+              {/* Instagram */}
+              <a
+                href={contentData.userData.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="
+                  group flex items-center gap-3
+                  text-neutral-700
+                  transition-colors duration-300
+                  hover:text-neutral-900
+                "
+              >
+                <FaInstagram
+                  size={25}
+                  className="transition-transform duration-300 group-hover:-translate-y-0.5"
+                />
+
+                <span className="text-[0.80rem] md:text-[0.75rem] md:font-medium font-bold uppercase tracking-[0.2em]">
+                  Instagram
+                </span>
+              </a>
             </div>
 
           </FadeIn>

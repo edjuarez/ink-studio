@@ -30,6 +30,7 @@ export const contentData = {
     openMenu: "Abrir menú de navegación",
     goNextSection: "Ir a la siguiente sección",
     contactWhatsapp: "Contactar por WhatsApp",
+    whatsappCta: "Escríbeme por WhatsApp",
   },
   common: {
     allCategories: "Todos",
@@ -63,7 +64,7 @@ export const contentData = {
       tagline: "✦ Tradicional · Ornamental · Linework · OpArt ✦",
       paragraphs: [
         {
-          lead: "Especializado en técnicas de ",
+          lead: "Especializada en técnicas de ",
           highlights: ["Blackwork", "Fine Line"],
           tail: " y proyectos autorales. Concibo el tatuaje no solo como una ilustración, sino como una extensión de la anatomía e identidad de cada persona.",
         },
@@ -152,6 +153,13 @@ export const contentData = {
         location: "Ubicación",
       },
     },
+    booking: {
+      eyebrow: "¿Hablamos?",
+      title: "¿Te interesa algún diseño?",
+      description:
+        "Si tienes alguna duda o consulta sobre un diseño, un estilo o cómo trabajamos, no dudes en escribirme. Te asesoro sin compromiso y te ayudo a encontrar la pieza perfecta para ti.",
+      microcopy: "Respondo en menos de 24 h · Sin compromiso",
+    },
     faq: {
       eyebrow: "Resolviendo dudas",
       title: "Preguntas Frecuentes",
@@ -202,7 +210,7 @@ export const contentData = {
     prints: {
       title: "Prints",
       description:
-        "Una selección de prints creados por Sophie, disponibles para tatuar y adaptar a cada persona.",
+        "Una selección de prints creados por mí, disponibles para tatuar y adaptar a cada persona.",
       items: [
         { id: 1, image: "/printsGallery/print-1.webp", title: "Serpiente", category: "Ornamental" },
         { id: 2, image: "/printsGallery/print-2.webp", title: "Flor", category: "Linework" },
@@ -264,7 +272,7 @@ export const contentData = {
     designs: {
       title: "Diseños",
       description:
-        "Una selección de diseños creados por Sophie, disponibles para tatuar y adaptar a cada persona.",
+        "Una selección de diseños disponibles para tatuar y adaptar a cada persona.",
       items: [
         { id: 1, image: "/designsGallery/opticArt/design-1.webp", category: "opticArt" },
         { id: 2, image: "/designsGallery/opticArt/design-2.webp", category: "opticArt" },

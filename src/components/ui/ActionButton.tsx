@@ -32,10 +32,10 @@ export default function ActionButton({
 
   return (
     <FadeIn className="mt-16 flex justify-center">
-      <div className={`border-2 p-1.5 ${current.wrapper}`}>
+      <div className={`border-2 p-1 ${current.wrapper}`}>
         <Link
           to={href}
-          className={`group relative flex items-center gap-3 overflow-hidden border-2 px-7 py-3.5 uppercase tracking-[0.15em] ${current.button}`}
+          className={`text-[0.75rem] group relative flex items-center gap-3 overflow-hidden border-2 px-5 py-3.5 uppercase tracking-[0.15em] ${current.button}`}
         >
           <span
             className={`absolute inset-0 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100 ${current.hover}`}

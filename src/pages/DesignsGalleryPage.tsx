@@ -1,3 +1,4 @@
+import BookingCta from "../components/shared/BookingCta";
 import Gallery from "../components/shared/Gallery";
 import FadeIn from "../components/ui/FadeIn";
 import { contentData } from "../data/data";
@@ -13,7 +14,7 @@ export default function DesignsGalleryPage() {
             {contentData.pages.designs.title}
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-neutral-600 md:text-base">
+          <p className="section-description-primary">
             {contentData.pages.designs.description}
           </p>
         </FadeIn>
@@ -22,6 +23,8 @@ export default function DesignsGalleryPage() {
           items={contentData.pages.designs.items}
           variant="designs"
         />
+
+        <BookingCta />
 
       </section>
     </main>

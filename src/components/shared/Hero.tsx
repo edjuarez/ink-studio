@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaWhatsappSquare, FaInstagramSquare } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 import FadeIn from "../ui/FadeIn";
 import { contentData } from "../../data/data";
 
@@ -71,6 +71,11 @@ export default function Hero() {
         </p> */}
 
         <div className="flex flex-col items-center justify-center">
+          <img
+            src="/logo.webp"
+            alt="Sophie Art Tattoo"
+            className="mb-6 h-auto w-23 object-contain md:hidden  grayscale opacity-80"
+          />
 
           <h1
             className="grenze-gotisch-bold text-[17vw] leading-[0.75] tracking-wider text-neutral-800 sm:text-[12vw] lg:text-[9rem]"
@@ -85,18 +90,18 @@ export default function Hero() {
             {contentData.sections.hero.title}
           </h1>
 
-          <p className="font-display text-[5rem] text-neutral-800">
+          <p className="font-display text-[3rem] md:text-[5rem] text-neutral-800">
             {contentData.sections.hero.subtitle}
           </p>
 
           {/* Actions */}
-          <div className="mt-10 flex flex-col items-center gap-5">
+          <div className="mt-5 md:mt-10 flex flex-col items-center gap-5">
 
             {/* Agendar cita */}
             <div className="border-2 border-neutral-700 p-1.5">
               <a
                 href="#contacto"
-                className="group relative bg-neutral-700 flex items-center gap-3 overflow-hidden border-2 border-neutral-700 px-7 py-3.5 uppercase tracking-[0.15em]"
+                className="text-[0.75rem] group relative bg-neutral-700 flex items-center gap-3 overflow-hidden border-2 border-neutral-700 px-7 py-3.5 uppercase tracking-[0.15em]"
               >
                 <span className="absolute inset-0 origin-left scale-x-0 bg-neutral-900 transition-transform duration-500 group-hover:scale-x-100" />
 
@@ -104,27 +109,55 @@ export default function Hero() {
                   {contentData.buttons.bookAppointment}
                 </span>
               </a>
-                  
             </div>
-{/*             <ActionButton href="#contacto" variant="dark">
-                    Agendar cita
-                  </ActionButton> */}
-            <div className="flex flex-row items-center gap-3">
+            <div className="mt-3 md:mt-8 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+              {/* WhatsApp */}
               <a
                 href={contentData.userData.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-neutral-700 hover:text-neutral-900 transition-colors duration-500"
+                aria-label="WhatsApp"
+                className="
+                  group flex items-center gap-3
+                  text-neutral-800
+                  transition-colors duration-300
+                  hover:text-neutral-900
+                "
               >
-                <FaWhatsappSquare size={50} />
+                <FaWhatsapp
+                  size={28}
+                  className="transition-transform duration-300 group-hover:-translate-y-0.5"
+                />
+
+                <span className="text-[0.80rem] md:text-[0.85rem] md:font-medium font-bold uppercase tracking-[0.2em]">
+                  WhatsApp
+                </span>
               </a>
+
+              {/* Separador solo desktop */}
+              <span className="hidden h-5 w-px bg-neutral-700/30 sm:block" />
+
+              {/* Instagram */}
               <a
                 href={contentData.userData.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-neutral-700 hover:text-neutral-900 transition-colors duration-500"
+                aria-label="Instagram"
+                className="
+                  group flex items-center gap-3
+                  text-neutral-800
+                  transition-colors duration-300
+                  hover:text-neutral-900
+                "
               >
-                <FaInstagramSquare size={50} />
+                <FaInstagram
+                  size={28}
+                  className="transition-transform duration-300 group-hover:-translate-y-0.5"
+                />
+
+                <span className="text-[0.80rem] md:text-[0.85rem] md:font-medium font-bold uppercase tracking-[0.2em]">
+                  Instagram
+                </span>
               </a>
             </div>
           </div>

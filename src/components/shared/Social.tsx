@@ -21,7 +21,7 @@ export default function Social() {
           </h2>
         </a>
 
-        <p className="mx-auto mt-8 max-w-xl text-sm leading-7 text-neutral-600 md:text-base">
+        <p className="section-description-primary">
           {contentData.sections.social.description}
         </p>
       </FadeIn>

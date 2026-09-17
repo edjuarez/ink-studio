@@ -27,21 +27,24 @@ export default function Estilos() {
             {contentData.sections.estilos.title}
           </h2>
 
-          <p className="mt-6 text-center text-sm text-neutral-600 md:text-base">
+          <p className="section-description-primary max-w-sm mx-auto">
             {contentData.sections.estilos.paragraph}
           </p>
         </FadeIn>
 
         <FadeIn
           delay={0.15}
-          className="mt-16 flex flex-wrap items-center justify-center gap-x-30 gap-y-4 border-y border-neutral-900/20 py-8"
+          className="mt-16 flex flex-col gap-5 border-y border-neutral-900/20 py-8 md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-x-30 md:gap-y-4"
         >
           {styles.map((style, index) => {
             const Icon = styleIcons[index];
 
             return (
-              <div key={style} className="flex items-center gap-7">
-                <Icon className="text-neutral-500" size={28} />
+              <div
+                key={style}
+                className="flex items-center gap-5 md:gap-7"
+              >
+                <Icon className="shrink-0 text-neutral-500" size={28} />
 
                 <span className="font-display text-2xl text-neutral-900 md:text-3xl">
                   {style}

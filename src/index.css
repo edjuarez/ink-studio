@@ -43,16 +43,16 @@
 
 @layer components {
   .section-name {
-    @apply mb-3 text-[10px] font-bold uppercase tracking-[0.35em] text-neutral-500 sm:text-[1rem];
+    @apply mb-3 text-[0.75rem] md:text-[0.90rem] font-bold uppercase tracking-[0.35em] text-neutral-500;
   }
   .section-title {
     @apply font-display text-7xl font-medium tracking-normal text-text md:text-[6rem];
   }
   .section-title-secondary {
-    @apply font-display text-7xl font-medium tracking-normal text-text md:text-[rem];
+    @apply font-display text-[2.15rem] font-medium tracking-normal text-text md:text-[3.75rem] leading-none;
   }
-  .section-paragraph-primary {
-    @apply mt-8 max-w-md text-sm leading-7 text-neutral-600 md:text-base;
+  .section-description-primary {
+    @apply mt-6 text-[1rem] md:text-[1rem] text-neutral-600 md:text-base text-center;
   }
   .section-bg-primary {
     @apply z-10 bg-[#efecec] w-full px-6 py-24 relative;
@@ -74,3 +74,5 @@
   }
 }
 @keyframes scroll-dot { 0% { transform: translate(-50%, 0); opacity: 0.4; } 50% { transform: translate(-50%, 16px); opacity: 1; } 100% { transform: translate(-50%, 0); opacity: 0.4; } } .animate-scroll-dot { animation: scroll-dot 1.8s ease-in-out infinite; }
+@keyframes scroll-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } } .animate-scroll-bounce { animation: scroll-bounce 1.8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .animate-scroll-bounce { animation: none; } }

@@ -30,7 +30,7 @@ export default function ScrollIndicator({
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="cursor-pointer absolute bottom-8 left-1/2 z-9 -translate-x-1/2"
         >
-          <span className="relative block h-12 w-7 rounded-full border-2 border-neutral-900 bg-transparent">
+          <span className="animate-scroll-bounce relative block h-12 w-7 rounded-full border-2 border-neutral-900 bg-transparent">
             <span className="animate-scroll-dot absolute left-1/2 top-2 h-2 w-1 -translate-x-1/2 rounded-full bg-neutral-900" />
           </span>
         </motion.button>

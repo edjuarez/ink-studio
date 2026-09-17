@@ -1,3 +1,4 @@
+import BookingCta from "../components/shared/BookingCta";
 import Gallery from "../components/shared/Gallery";
 import FadeIn from "../components/ui/FadeIn";
 import { contentData } from "../data/data";
@@ -15,6 +16,7 @@ export default function PortfolioGalleryPage() {
           items={contentData.pages.portfolio.items}
           variant="tattoos"
         />
+        <BookingCta />
       </section>
     </main>
   );

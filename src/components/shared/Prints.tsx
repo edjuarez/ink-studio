@@ -21,7 +21,7 @@ export default function Prints() {
                 {printsSection.title}
               </h2>
 
-              <p className="mt-6 text-sm text-neutral-600 md:text-base text-center">
+              <p className="section-description-primary max-w-sm mx-auto">
                 {printsSection.description}
               </p>
 
@@ -32,7 +32,7 @@ export default function Prints() {
           </FadeIn>
 
           {/* Galería */}
-          <FadeIn delay={0.15} className="grid grid-cols-3 gap-3 md:gap-5">
+          <FadeIn delay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5">
             {printsSection.images.map((image, index) => (
               <a
                 key={image}

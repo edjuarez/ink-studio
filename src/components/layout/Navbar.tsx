@@ -142,12 +142,12 @@ export default function Navbar() {
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           className={`
-            text-neutral-900 md:hidden
-            ${scrolled || !isHome ? "ml-auto" : "absolute right-5"}
+             md:hidden 
+            ${scrolled || !isHome ? "text-white ml-auto" : "mt-10 absolute right-5"}
           `}
           aria-label={contentData.buttons.openMenu}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
       </div>
 
@@ -156,9 +156,9 @@ export default function Navbar() {
         <div className="border-t border-neutral-300/50 bg-[#f4f1eb] px-6 pb-6 pt-4 md:hidden">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 onClick={() => setIsOpen(false)}
                 className="
                   group relative w-fit py-1
@@ -169,7 +169,7 @@ export default function Navbar() {
                 {link.name}
 
                 <span className="absolute bottom-0 left-0 h-px w-0 bg-neutral-900 transition-all duration-300 group-hover:w-full" />
-              </a>
+              </Link>
             ))}
 
             <a
