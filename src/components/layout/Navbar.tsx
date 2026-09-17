@@ -7,10 +7,25 @@ import { useLocation, Link } from "react-router-dom";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const location = useLocation();
   const navLinks = contentData.navigation;
   const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,23 +53,21 @@ export default function Navbar() {
     };
   }, [isHome]);
 
+  const navbarSolid = scrolled || !isHome || isMobile;
+
   return (
     <header
       className={`
         fixed top-0 z-50 w-full
         transition-all duration-500 ease-in-out
-        ${
-          scrolled || !isHome
-            ? "bg-neutral-900 backdrop-blur-md"
-            : "bg-transparent"
-        }
+        ${navbarSolid ? "bg-neutral-900 backdrop-blur-md" : "bg-transparent"}
       `}
     >
       <div
         className={`
           mx-auto flex items-center px-5 py-4
           transition-all duration-100 ease-in-out
-          ${scrolled || !isHome ? "justify-between" : "justify-center"}
+          ${navbarSolid ? "justify-between" : "justify-center"}
         `}
       >
         {/* LOGO */}
@@ -64,7 +77,7 @@ export default function Navbar() {
             flex flex-row items-center gap-3.5 leading-none
             transition-all duration-500
             ${
-              scrolled || !isHome
+              navbarSolid
                 ? "flex-1 translate-x-0 justify-start opacity-100"
                 : "pointer-events-none absolute -translate-x-8 justify-center opacity-0"
             }
@@ -88,7 +101,7 @@ export default function Navbar() {
               className={`
                 group relative font-bold uppercase tracking-[0.2em]
                 ${
-                  scrolled || !isHome
+                  navbarSolid
                     ? "text-xs text-white"
                     : "text-[1rem] text-neutral-900"
                 }
@@ -101,7 +114,7 @@ export default function Navbar() {
                   absolute -bottom-1 left-0 h-px w-0
                   transition-all duration-300 ease-out
                   group-hover:w-full
-                  ${scrolled || !isHome ? "bg-white" : "bg-neutral-900"}
+                  ${navbarSolid ? "bg-white" : "bg-neutral-900"}
                 `}
               />
             </Link>
@@ -109,7 +122,7 @@ export default function Navbar() {
         </nav>
 
         {/* DESKTOP RIGHT BUTTONS */}
-        {scrolled || !isHome ? (
+        {navbarSolid ? (
           <div className="hidden flex-1 items-center justify-end gap-3 md:flex">
             {/* INSTAGRAM */}
             <a
@@ -137,15 +150,20 @@ export default function Navbar() {
           </div>
         ) : null}
 
-        {/* MOBILE */}
+        {/* MOBILE MENU BUTTON */}
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           className={`
-             md:hidden 
-            ${scrolled || !isHome ? "text-white ml-auto" : "mt-10 absolute right-5"}
+            absolute right-5 top-4
+            md:hidden
+            ${navbarSolid ? "text-white" : "text-neutral-900"}
           `}
-          aria-label={contentData.buttons.openMenu}
+          aria-label={
+            isOpen
+              ? contentData.buttons.closeMenu
+              : contentData.buttons.openMenu
+          }
         >
           {isOpen ? <X size={30} /> : <Menu size={30} />}
         </button>

@@ -28,6 +28,7 @@ export const contentData = {
     send: "Enviar",
     sending: "Enviando...",
     openMenu: "Abrir menú de navegación",
+    closeMenu: "Cerrar el menú de navegación.",
     goNextSection: "Ir a la siguiente sección",
     contactWhatsapp: "Contactar por WhatsApp",
     whatsappCta: "Escríbeme por WhatsApp",
