@@ -26,7 +26,7 @@ export default function Social() {
         </p>
       </FadeIn>
       {/* IMAGES */}
-      <FadeIn delay={0.15} className="mt-20 grid w-full grid-cols-2">
+      <FadeIn delay={0.15} className="mt-20 grid w-full grid-cols-1 md:grid-cols-2">
         {contentData.sections.social.images.map((image) => (
           <div key={image.src} className="overflow-hidden">
             <img

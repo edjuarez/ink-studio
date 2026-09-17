@@ -91,7 +91,7 @@ export const contentData = {
           id: 2,
           title: "Retrato Botánico",
           style: "Fine Line",
-          image: "portfolioGallery/portfolio-2.webp",
+          image: "portfolioGallery/portfolio-11.jpg",
         },
         {
           id: 3,
@@ -147,7 +147,7 @@ export const contentData = {
       titleLine1: "¿Tienes una idea",
       titleLine2: "en mente?",
       description:
-        "Si tienes una idea para un tatuaje, quieres personalizar un diseño o simplemente quieres contarme lo que tienes en mente, escríbeme. Cuéntame tu idea y nos ponemos en contacto para hablar sobre tu proyecto.",
+        "Si tienes una idea para un tatuaje, quieres personalizar un diseño o simplemente quieres contarme lo que tienes en mente, escríbeme. Cuéntame tu idea y me pondré en contacto para hablar sobre tu proyecto.",
       details: {
         phone: "Teléfono",
         instagram: "Instagram",
@@ -316,6 +316,10 @@ export const contentData = {
         { id: 39, image: "/designsGallery/tradicional/design-9.webp", category: "tradicional" },
         { id: 40, image: "/designsGallery/tradicional/design-10.webp", category: "tradicional" },
       ],
+    },
+    contact: {
+      title: "Contacto",
+      description: "Completa el formulario con algunos detalles sobre tu idea. Cuanta más información puedas darme, mejor podré entender lo que buscas y orientarte sobre el diseño, tamaño, ubicación y disponibilidad."
     },
   },
   form: {

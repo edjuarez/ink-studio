@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 import { contentData } from "../../data/data";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +10,7 @@ export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
 
   const location = useLocation();
+  const navigate = useNavigate();
   const navLinks = contentData.navigation;
   const isHome = location.pathname === "/";
 
@@ -94,31 +95,72 @@ export default function Navbar() {
 
         {/* DESKTOP NAV */}
         <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.href}
-              className={`
-                group relative font-bold uppercase tracking-[0.2em]
-                ${
-                  navbarSolid
-                    ? "text-xs text-white"
-                    : "text-[1rem] text-neutral-900"
-                }
-              `}
-            >
-              {link.name}
+          {navLinks.map((link) => {
+            const isHomeLink = link.href === "/";
 
-              <span
+            if (isHomeLink) {
+              return (
+                <button
+                  key={link.name}
+                  type="button"
+                  onClick={() => {
+                    if (location.pathname === "/") {
+                      document.getElementById("home")?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    } else {
+                      navigate("/");
+                    }
+                  }}
+                  className={`
+                    group relative font-bold uppercase tracking-[0.2em]
+                    ${
+                      navbarSolid
+                        ? "text-xs text-white"
+                        : "text-[1rem] text-neutral-900"
+                    }
+                  `}
+                >
+                  {link.name}
+
+                  <span
+                    className={`
+                      absolute -bottom-1 left-0 h-px w-0
+                      transition-all duration-300 ease-out
+                      group-hover:w-full
+                      ${navbarSolid ? "bg-white" : "bg-neutral-900"}
+                    `}
+                  />
+                </button>
+              );
+            }
+
+            return (
+              <Link
+                key={link.name}
+                to={link.href}
                 className={`
-                  absolute -bottom-1 left-0 h-px w-0
-                  transition-all duration-300 ease-out
-                  group-hover:w-full
-                  ${navbarSolid ? "bg-white" : "bg-neutral-900"}
+                  group relative font-bold uppercase tracking-[0.2em]
+                  ${
+                    navbarSolid
+                      ? "text-xs text-white"
+                      : "text-[1rem] text-neutral-900"
+                  }
                 `}
-              />
-            </Link>
-          ))}
+              >
+                {link.name}
+
+                <span
+                  className={`
+                    absolute -bottom-1 left-0 h-px w-0
+                    transition-all duration-300 ease-out
+                    group-hover:w-full
+                    ${navbarSolid ? "bg-white" : "bg-neutral-900"}
+                  `}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         {/* DESKTOP RIGHT BUTTONS */}
@@ -173,22 +215,55 @@ export default function Navbar() {
       {isOpen && (
         <div className="border-t border-neutral-300/50 bg-[#f4f1eb] px-6 pb-6 pt-4 md:hidden">
           <nav className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                onClick={() => setIsOpen(false)}
-                className="
-                  group relative w-fit py-1
-                  text-xs font-medium uppercase tracking-[0.2em]
-                  text-neutral-900
-                "
-              >
-                {link.name}
+            {navLinks.map((link) => {
+              const isHomeLink = link.href === "/";
 
-                <span className="absolute bottom-0 left-0 h-px w-0 bg-neutral-900 transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
+              if (isHomeLink) {
+                return (
+                  <button
+                    key={link.name}
+                    type="button"
+                    onClick={() => {
+                      setIsOpen(false);
+
+                      if (location.pathname === "/") {
+                        document.getElementById("home")?.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      } else {
+                        navigate("/");
+                      }
+                    }}
+                    className="
+                      group relative w-fit py-1
+                      text-left text-xs font-medium uppercase tracking-[0.2em]
+                      text-neutral-900
+                    "
+                  >
+                    {link.name}
+
+                    <span className="absolute bottom-0 left-0 h-px w-0 bg-neutral-900 transition-all duration-300 group-hover:w-full" />
+                  </button>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="
+                    group relative w-fit py-1
+                    text-xs font-medium uppercase tracking-[0.2em]
+                    text-neutral-900
+                  "
+                >
+                  {link.name}
+
+                  <span className="absolute bottom-0 left-0 h-px w-0 bg-neutral-900 transition-all duration-300 group-hover:w-full" />
+                </Link>
+              );
+            })}
 
             <a
               href={contentData.userData.instagramUrl}
