@@ -29,6 +29,8 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (!isHome) return;
+
     const handleScroll = () => {
       const hero = document.getElementById("home");
 
@@ -42,12 +44,8 @@ export default function Navbar() {
       setScrolled(window.scrollY >= heroHeight - 50);
     };
 
-    if (isHome) {
-      window.addEventListener("scroll", handleScroll);
-      requestAnimationFrame(handleScroll);
-    } else {
-      setScrolled(true);
-    }
+    window.addEventListener("scroll", handleScroll);
+    requestAnimationFrame(handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -113,7 +111,7 @@ export default function Navbar() {
                     }
                   }}
                   className={`
-                    group relative font-bold uppercase tracking-[0.2em]
+                    cursor-pointer group relative font-bold uppercase tracking-[0.2em]
                     ${
                       navbarSolid
                         ? "text-xs text-white"

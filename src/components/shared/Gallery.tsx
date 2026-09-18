@@ -3,13 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import FadeIn from "../ui/FadeIn";
 import { contentData } from "../../data/data";
-
-type GalleryItem = {
-  id: number;
-  image: string;
-  title?: string;
-  category?: string;
-};
+import type { GalleryItem } from "../../types/content";
 
 type GalleryProps = {
   items: GalleryItem[];

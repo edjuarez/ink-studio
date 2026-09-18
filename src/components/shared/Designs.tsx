@@ -42,7 +42,7 @@ export default function Designs() {
         {designsSection.description}
       </p>
 
-      <ActionButton href="/designs">
+      <ActionButton href="/diseños">
         {buttons.seeDesigns}
       </ActionButton>
     </div>

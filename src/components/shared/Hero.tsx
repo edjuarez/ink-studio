@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 import FadeIn from "../ui/FadeIn";
 import { contentData } from "../../data/data";
@@ -99,8 +100,8 @@ export default function Hero() {
 
             {/* Agendar cita */}
             <div className="border-2 border-neutral-700 p-1.5">
-              <a
-                href="#contacto"
+              <Link
+                to="/#contacto"
                 className="text-[0.75rem] group relative bg-neutral-700 flex items-center gap-3 overflow-hidden border-2 border-neutral-700 px-7 py-3.5 uppercase tracking-[0.15em]"
               >
                 <span className="absolute inset-0 origin-left scale-x-0 bg-neutral-900 transition-transform duration-500 group-hover:scale-x-100" />
@@ -108,7 +109,7 @@ export default function Hero() {
                 <span className="text-white relative z-10 transition-colors duration-500 group-hover:text-[#E8E8E8]">
                   {contentData.buttons.bookAppointment}
                 </span>
-              </a>
+              </Link>
             </div>
             <div className="mt-3 md:mt-8 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
               {/* WhatsApp */}

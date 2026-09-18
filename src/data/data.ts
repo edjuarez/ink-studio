@@ -1,9 +1,13 @@
+import type { ContentData } from "../types/content";
+
+const site = {
+  name: "Sophie Art",
+  tagline: "TATTOO",
+  fullName: "Sophie Art Tattoo",
+};
+
 export const contentData = {
-  site: {
-    name: "Sophie Art",
-    tagline: "TATTOO",
-    fullName: "Sophie Art Tattoo",
-  },
+  site,
   userData: {
     phone: "+34 600 000 000",
     phoneRaw: "34600000000",
@@ -203,7 +207,7 @@ export const contentData = {
         { name: "Aviso legal", href: "/aviso-legal" },
       ],
       copyright: (year: number) =>
-        `© ${year} ${contentData.site.fullName}. Todos los derechos reservados.`,
+        `© ${year} ${site.fullName}. Todos los derechos reservados.`,
       credit: "Hecho por Tuchidigital",
     },
   },
@@ -386,4 +390,4 @@ export const contentData = {
     helperText:
       "Te responderé lo antes posible para hablar sobre tu idea y disponibilidad.",
   },
-};
+} satisfies ContentData;
