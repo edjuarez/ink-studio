@@ -8,13 +8,13 @@ import Contact from "./pages/ContactPage";
 // COMPONENTS
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import ScrollIndicator from "./components/ui/ScrollIndicator";
 import WhatsAppButton from "./components/ui/WhatsAppButton";
 import ArtistPage from "./pages/ArtistPage";
 import DesignsGalleryPage from "./pages/DesignsGalleryPage";
 import ScrollToTop from "./components/ScrollToTop";
 import PrintsGalleryPage from "./pages/PrintsPage";
 import PortfolioGalleryPage from "./pages/PortfolioGalleryPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -29,11 +29,10 @@ function App() {
         <Route path="/diseños" element={<DesignsGalleryPage />} />
         <Route path="/prints" element={<PrintsGalleryPage />} />
         <Route path="/portfolio" element={<PortfolioGalleryPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
       <Footer />
-
-      <ScrollIndicator targetId="estilos" />
 
       <WhatsAppButton />
     </>

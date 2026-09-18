@@ -36,6 +36,7 @@ export const contentData = {
     goNextSection: "Ir a la siguiente sección",
     contactWhatsapp: "Contactar por WhatsApp",
     whatsappCta: "Escríbeme por WhatsApp",
+    backHome: "Volver al inicio",
   },
   common: {
     allCategories: "Todos",
@@ -324,6 +325,11 @@ export const contentData = {
     contact: {
       title: "Contacto",
       description: "Completa el formulario con algunos detalles sobre tu idea. Cuanta más información puedas darme, mejor podré entender lo que buscas y orientarte sobre el diseño, tamaño, ubicación y disponibilidad."
+    },
+    notFound: {
+      eyebrow: "Error 404",
+      title: "Página no encontrada",
+      description: "La página que buscas no existe, fue movida o cambió de nombre."
     },
   },
   form: {

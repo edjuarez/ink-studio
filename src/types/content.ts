@@ -73,6 +73,7 @@ export type ContentData = {
     goNextSection: string;
     contactWhatsapp: string;
     whatsappCta: string;
+    backHome: string;
   };
   common: {
     allCategories: string;
@@ -170,6 +171,11 @@ export type ContentData = {
       items: GalleryItem[];
     };
     contact: {
+      title: string;
+      description: string;
+    };
+    notFound: {
+      eyebrow: string;
       title: string;
       description: string;
     };

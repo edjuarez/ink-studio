@@ -7,13 +7,15 @@ import Contact from "../components/shared/Contact";
 import Estilos from "../components/shared/Estilos";
 import Prints from "../components/shared/Prints";
 import Designs from "../components/shared/Designs";
+import ScrollIndicator from "../components/ui/ScrollIndicator";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <div id="home" className="w-full z-0 sticky h-screen">
+      <div id="home" className="w-full z-0 sticky h-screen top-0">
         <Hero />
       </div>
+      
       <Estilos />
       <HomeGallery />
       <Designs />
@@ -22,6 +24,7 @@ export default function Home() {
       <FAQ />
       <Contact />
       <Social />
+      <ScrollIndicator targetId="estilos" />
     </main>
   );
 }

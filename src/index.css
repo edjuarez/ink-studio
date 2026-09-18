@@ -11,7 +11,7 @@
   --font-sans: "Inter", sans-serif;
   --font-rye: "Rye", serif;
   --font-abril: "Abril Fatface", serif;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 @theme {
   --color-background: #e8e7e3;

@@ -1,54 +1,57 @@
 # Tattoo Artist Portfolio
 
-A modern and responsive portfolio website for a tattoo artist, focused on showcasing artwork, artist information and providing an easy way to request an appointment.
+Sitio web de portfolio para una tatuadora: galerías de tatuajes, diseños y prints, información de la artista y formulario de contacto para pedir cita.
 
-## 🚧 Status
+## 🚧 Estado
 
-Work in progress.
+En desarrollo.
 
-## ✨ Features
+## ✨ Funcionalidades
 
-- Responsive design
-- Hero section
-- Selected tattoo work
-- Tattoo gallery with categories
-- Artist information
-- FAQ section
-- Appointment/contact section
-- Image management through Supabase
-- Admin area for managing gallery content
-- Authentication for the admin area
+- Diseño responsive
+- Hero con efecto parallax
+- Selección de trabajos recientes
+- Galerías de tatuajes, diseños y prints
+- Información de la artista
+- FAQ
+- Sección de contacto con formulario
+- Envío del formulario mediante Cloudflare Worker + Resend
+- Página 404 para rutas inexistentes
 
-## 🛠️ Tech Stack
+## 🛠️ Stack
 
-- React
-- TypeScript
+- React + TypeScript
 - Vite
 - Tailwind CSS
-- Supabase
-- Supabase Storage
-- Supabase Auth
+- React Router
+- Cloudflare Workers + Vite Plugin
+- Resend (envío del formulario de contacto)
 
-## 🎨 Design
-
-The website uses a minimal editorial style with a neutral gray color palette, typography-focused layouts and subtle animations inspired by tattoo and ink aesthetics.
-
-## 📁 Project Structure
+## 📁 Estructura del Proyecto
 
 ```text
 src/
 ├── components/
 ├── pages/
-├── layouts/
-├── hooks/
-├── lib/
-├── types/
-├── assets/
+├── data/
 ├── App.tsx
-└── main.tsx
-```text
+├── main.tsx
+└── worker.ts
+```
 
+## 🚀 Deploy
 
-## 👤 Author
+```bash
+npm run build
+npx wrangler deploy
+```
 
-Created by **Eduardo Juarez**.
+### Variables de entorno
+
+- `RESEND_API_KEY`: clave de API de Resend. Se define como secret (`npx wrangler secret put RESEND_API_KEY`) o en `.dev.vars` para desarrollo.
+- `RESEND_FROM_EMAIL`: remitente del email. En prueba se usa `onboarding@resend.dev`; en producción debe ser un dominio verificado en Resend.
+- `CONTACT_TO_EMAIL`: destinatario del formulario de contacto.
+
+## 👤 Autor
+
+Creado por **Eduardo Juarez**.
