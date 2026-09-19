@@ -2,14 +2,27 @@ import { Resend } from "resend";
 
 interface Env {
   RESEND_API_KEY: string;
+  sophie_art_tattoo_db: D1Database;
 }
-
+type ContactFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  idea: string;
+  placement: string;
+  size: string;
+  style: string;
+  budget: string;
+  date: string;
+  availability: string;
+  additional: string;
+};
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/contact" && request.method === "POST") {
-      const data = await request.json();
+      const data = await request.json() as ContactFormData;
 
       const resend = new Resend(env.RESEND_API_KEY);
 
@@ -48,7 +61,13 @@ export default {
         email: emailData,
       });
     }
+    if (url.pathname === "/api/tattoos" && request.method === "GET") {
+      const { results } = await env.sophie_art_tattoo_db
+        .prepare("SELECT * FROM tattoos ORDER BY sort_order ASC")
+        .all();
 
+      return Response.json(results);
+    }
     return new Response("Ruta no encontrada", {
       status: 404,
     });

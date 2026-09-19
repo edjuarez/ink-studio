@@ -2,8 +2,12 @@ import BookingCta from "../components/shared/BookingCta";
 import Gallery from "../components/shared/Gallery";
 import FadeIn from "../components/ui/FadeIn";
 import { contentData } from "../data/data";
+import { useLocation } from "react-router-dom";
 
 export default function DesignsGalleryPage() {
+  const location = useLocation();
+
+  const initialCategory = location.state?.category;
   return (
     <main className="section-bg-primary">
       <section className="mx-auto w-full">
@@ -22,6 +26,7 @@ export default function DesignsGalleryPage() {
         <Gallery
           items={contentData.pages.designs.items}
           variant="designs"
+          initialCategory={initialCategory}
         />
 
         <BookingCta />

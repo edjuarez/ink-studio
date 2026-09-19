@@ -8,14 +8,19 @@ import type { GalleryItem } from "../../types/content";
 type GalleryProps = {
   items: GalleryItem[];
   variant: "designs" | "tattoos" | "prints";
+  initialCategory?: string;
 };
 
 export default function Gallery({
   items,
   variant,
+  initialCategory
 }: GalleryProps) {
-  const [activeCategory, setActiveCategory] = useState(contentData.common.allCategories);
+
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+
+  const normalizeCategory = (value: string) =>
+    value.trim().toLowerCase();
 
   const categories = [
     contentData.common.allCategories,
@@ -25,6 +30,17 @@ export default function Gallery({
         .filter((category): category is string => Boolean(category))
     ),
   ];
+
+  const matchingCategory = initialCategory
+    ? categories.find(
+        (category) =>
+          normalizeCategory(category) === normalizeCategory(initialCategory)
+      )
+    : undefined;
+
+  const [activeCategory, setActiveCategory] = useState(
+    matchingCategory ?? contentData.common.allCategories
+  );
 
   const filteredItems =
     activeCategory === contentData.common.allCategories

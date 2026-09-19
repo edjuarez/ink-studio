@@ -2,11 +2,10 @@ import FadeIn from "../ui/FadeIn";
 import { contentData } from "../../data/data";
 
 export default function Intro() {
-
   return (
-    <section id="estilos" className="section-bg-primary">
+    <section id="estilos" className="section-bg-primary pt-0">
       <div className="mx-auto">
-        <FadeIn className="mb-16 flex flex-col items-center text-center">
+        <FadeIn className="flex flex-col items-center text-center">
           <p className="section-name">
             {contentData.sections.estilos.eyebrow}
           </p>

@@ -14,8 +14,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <div id="home" className="w-full z-0 sticky h-screen top-0">
         <Hero />
-      </div>
-      
+      </div>  
       <Estilos />
       <HomeGallery />
       <Designs />

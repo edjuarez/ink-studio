@@ -61,13 +61,13 @@ export const contentData = {
       eyebrow: "Tattoo Artist · Barcelona",
       title: "Tatuajes & Prints",
       paragraph: "Tatuajes personalizados y piezas originales creadas desde Barcelona.",
-      styles: ["Tradicional", "Ornamental", "Linework", "OpArt"],
+      styles: ["Tradicional", "Ornamental", "Linework", "OpticArt"],
       separators: ["✦", "◇", "✦", ""],
     },
     about: {
       eyebrow: "Artista",
       title: "Sofi",
-      tagline: "✦ Tradicional · Ornamental · Linework · OpArt ✦",
+      tagline: "✦ Tradicional · Ornamental · Linework · OpticArt ✦",
       paragraphs: [
         {
           lead: "Especializada en técnicas de ",
@@ -233,12 +233,7 @@ export const contentData = {
     portfolio: {
       title: "Portfolio",
       items: [
-        { id: 2, image: "/portfolioGallery/portfolio-2.webp" },
-        { id: 3, image: "/portfolioGallery/portfolio-3.webp" },
-        { id: 4, image: "/portfolioGallery/portfolio-4.webp" },
-        { id: 5, image: "/portfolioGallery/portfolio-5.jpg" },
         { id: 6, image: "/portfolioGallery/portfolio-6.jpg" },
-        { id: 7, image: "/portfolioGallery/portfolio-7.webp" },
         { id: 8, image: "/portfolioGallery/portfolio-8.webp" },
         { id: 9, image: "/portfolioGallery/portfolio-9.webp" },
         { id: 10, image: "/portfolioGallery/portfolio-10.jpg" },
@@ -252,7 +247,9 @@ export const contentData = {
         { id: 18, image: "/portfolioGallery/portfolio-18.jpg" },
         { id: 1, image: "/portfolioGallery/portfolio-19.jpg" },
         { id: 19, image: "/portfolioGallery/portfolio-1.webp" },
+        { id: 5, image: "/portfolioGallery/portfolio-5.jpg" },
         { id: 20, image: "/portfolioGallery/portfolio-20.jpg" },
+        { id: 7, image: "/portfolioGallery/portfolio-7.webp" },
         { id: 21, image: "/portfolioGallery/portfolio-21.jpg" },
         { id: 22, image: "/portfolioGallery/portfolio-22.jpg" },
         { id: 23, image: "/portfolioGallery/portfolio-23.jpg" },
@@ -265,6 +262,9 @@ export const contentData = {
         { id: 30, image: "/portfolioGallery/portfolio-30.jpg" },
         { id: 31, image: "/portfolioGallery/portfolio-31.webp" },
         { id: 32, image: "/portfolioGallery/portfolio-32.jpg" },
+        { id: 2, image: "/portfolioGallery/portfolio-2.webp" },
+        { id: 3, image: "/portfolioGallery/portfolio-3.webp" },
+        { id: 4, image: "/portfolioGallery/portfolio-4.webp" },
         { id: 33, image: "/portfolioGallery/portfolio-33.jpg" },
         { id: 34, image: "/portfolioGallery/portfolio-34.jpg" },
         { id: 35, image: "/portfolioGallery/portfolio-35.jpg" },

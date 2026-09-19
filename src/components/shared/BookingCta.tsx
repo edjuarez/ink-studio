@@ -15,7 +15,7 @@ export default function BookingCta() {
         {booking.title}
       </h2>
 
-      <p className="section-description-primary">{booking.description}</p>
+      <p className="section-description-primary  max-w-sm mx-auto">{booking.description}</p>
 
       <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
         <a
