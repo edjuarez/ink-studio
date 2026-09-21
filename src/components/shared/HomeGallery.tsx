@@ -1,8 +1,39 @@
 import ActionButton from '../ui/ActionButton';
 import FadeIn from '../ui/FadeIn';
 import { contentData } from '../../data/data';
+import { getTattoos } from "../../services/tattoos";
+import type { Tattoo } from "../../types/api";
+import { useEffect, useState } from "react";
 
 export default function HomeGallery() {
+  const [tattoos, setTattoos] = useState<Tattoo[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadTattoos() {
+      try {
+        const data = await getTattoos(true, 6);
+        setTattoos(data);
+      } catch (error) {
+        console.error("Error loading featured tattoos", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadTattoos();
+  }, []);
+
+  if (loading) {
+    return null;
+  }
+
+  const items = tattoos.map((tattoo) => ({
+    id: tattoo.id,
+    image: tattoo.image_url,
+    title: undefined,
+    category: undefined,
+  }));
   return (
     <section id="galeria" className="section-bg-primary">
       <div className="mx-auto">
@@ -17,7 +48,7 @@ export default function HomeGallery() {
         </FadeIn>
 
         <FadeIn className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {contentData.sections.homeGallery.works.map((work) => (
+          {items.map((work) => (
             <div
               key={work.id}
               className="group relative flex flex-col overflow-hidden bg-neutral-200/50"

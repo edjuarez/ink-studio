@@ -78,7 +78,7 @@ export default function Navbar() {
             ${
               navbarSolid
                 ? "flex-1 translate-x-0 justify-start opacity-100"
-                : "pointer-events-none absolute -translate-x-8 justify-center opacity-0"
+                : "pointer-events-none absolute justify-center opacity-0"
             }
           `}
         >
@@ -123,7 +123,7 @@ export default function Navbar() {
 
                   <span
                     className={`
-                      absolute -bottom-1 left-0 h-px w-0
+                      absolute -bottom-1 left-0 h-[2px] w-0
                       transition-all duration-300 ease-out
                       group-hover:w-full
                       ${navbarSolid ? "bg-white" : "bg-neutral-900"}
@@ -150,7 +150,7 @@ export default function Navbar() {
 
                 <span
                   className={`
-                    absolute -bottom-1 left-0 h-px w-0
+                    absolute -bottom-1 left-0 h-[2px] w-0
                     transition-all duration-300 ease-out
                     group-hover:w-full
                     ${navbarSolid ? "bg-white" : "bg-neutral-900"}
@@ -163,7 +163,7 @@ export default function Navbar() {
 
         {/* DESKTOP RIGHT BUTTONS */}
         {navbarSolid ? (
-          <div className="hidden flex-1 items-center justify-end gap-3 md:flex">
+          <div className="hidden flex-1 items-center justify-end gap-4 md:flex">
             {/* INSTAGRAM */}
             <a
               href={contentData.userData.instagramUrl}
@@ -171,9 +171,9 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="group relative text-white/90 transition-colors duration-300 hover:text-white"
             >
-              <FaInstagram size={28} />
+              <FaInstagram size={25} />
 
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full" />
             </a>
 
             {/* WHATSAPP */}
@@ -183,9 +183,9 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="group relative text-white/90 transition-colors duration-300 hover:text-white"
             >
-              <FaWhatsapp size={28} />
+              <FaWhatsapp size={25} />
 
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full" />
             </a>
           </div>
         ) : null}

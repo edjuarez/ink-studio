@@ -3,6 +3,7 @@ import { Resend } from "resend";
 interface Env {
   RESEND_API_KEY: string;
   sophie_art_tattoo_db: D1Database;
+  sophie_art_tattoo_images: R2Bucket;
 }
 type ContactFormData = {
   name: string;
@@ -29,7 +30,7 @@ export default {
       const { data: emailData, error } = await resend.emails.send({
         from: "onboarding@resend.dev",
         to: "edjuarezcba@gmail.com",
-        subject: "Nuevo contacto - Sophie Art Tattoo",
+        subject: "Nueva consulta - Sophie Art Tattoo",
         html: `
           <h2>Nuevo contacto</h2>
           <p><strong>Nombre:</strong> ${data.name ?? "—"}</p>
@@ -62,11 +63,304 @@ export default {
       });
     }
     if (url.pathname === "/api/tattoos" && request.method === "GET") {
+      const featured = url.searchParams.get("featured") === "true";
+      const limit = Number(url.searchParams.get("limit")) || 50;
+
+      const query = featured
+        ? `
+          SELECT
+            id,
+            image_key,
+            alt,
+            featured,
+            sort_order
+          FROM tattoos
+          WHERE featured = 1
+          ORDER BY sort_order ASC
+          LIMIT ?
+        `
+        : `
+          SELECT
+            id,
+            image_key,
+            alt,
+            featured,
+            sort_order
+          FROM tattoos
+          ORDER BY sort_order ASC
+          LIMIT ?
+        `;
+
       const { results } = await env.sophie_art_tattoo_db
-        .prepare("SELECT * FROM tattoos ORDER BY sort_order ASC")
+        .prepare(query)
+        .bind(limit)
         .all();
 
-      return Response.json(results);
+      const R2_PUBLIC_URL =
+        "https://pub-38c671ca23e94690aca2af9565c3231c.r2.dev";
+
+      const tattoos = results.map((tattoo) => ({
+        ...tattoo,
+        image_url: `${R2_PUBLIC_URL}/${tattoo.image_key}`,
+      }));
+
+      return Response.json(tattoos);
+    }
+    if (url.pathname === "/api/designs" && request.method === "GET") {
+      const featured = url.searchParams.get("featured") === "true";
+      const limit = Number(url.searchParams.get("limit")) || 50;
+
+      const query = featured
+        ? `
+          SELECT
+            id,
+            image_key,
+            alt,
+            category,
+            featured,
+            sort_order
+          FROM designs
+          WHERE featured = 1
+          ORDER BY sort_order ASC
+          LIMIT ?
+        `
+        : `
+          SELECT
+            id,
+            image_key,
+            alt,
+            category,
+            featured,
+            sort_order
+          FROM designs
+          ORDER BY sort_order ASC
+          LIMIT ?
+        `;
+
+      const { results } = await env.sophie_art_tattoo_db
+        .prepare(query)
+        .bind(limit)
+        .all();
+
+      const R2_PUBLIC_URL =
+        "https://pub-38c671ca23e94690aca2af9565c3231c.r2.dev";
+
+      const designs = results.map((design) => ({
+        ...design,
+        image_url: `${R2_PUBLIC_URL}/${design.image_key}`,
+      }));
+
+      return Response.json(designs);
+    }
+    if (url.pathname === "/api/prints" && request.method === "GET") {
+      const featured = url.searchParams.get("featured") === "true";
+      const limit = Number(url.searchParams.get("limit")) || 50;
+
+      const query = featured
+        ? `
+          SELECT
+            id,
+            image_key,
+            alt,
+            title,
+            featured,
+            sort_order
+          FROM prints
+          WHERE featured = 1
+          ORDER BY sort_order ASC
+          LIMIT ?
+        `
+        : `
+          SELECT
+            id,
+            image_key,
+            alt,
+            title,
+            featured,
+            sort_order
+          FROM prints
+          ORDER BY sort_order ASC
+          LIMIT ?
+        `;
+
+      const { results } = await env.sophie_art_tattoo_db
+        .prepare(query)
+        .bind(limit)
+        .all();
+
+      const R2_PUBLIC_URL =
+        "https://pub-38c671ca23e94690aca2af9565c3231c.r2.dev";
+
+      const prints = results.map((print) => ({
+        ...print,
+        image_url: `${R2_PUBLIC_URL}/${print.image_key}`,
+      }));
+
+      return Response.json(prints);
+    }
+    if (
+      url.pathname === "/api/admin/sync-tattoos" &&
+      request.method === "POST"
+    ) {
+      const listed = await env.sophie_art_tattoo_images.list({
+        prefix: "tattoos/",
+      });
+
+      let inserted = 0;
+
+      for (const object of listed.objects) {
+        const imageKey = object.key;
+
+        const existing = await env.sophie_art_tattoo_db
+          .prepare("SELECT id FROM tattoos WHERE image_key = ?")
+          .bind(imageKey)
+          .first();
+
+        if (existing) {
+          continue;
+        }
+        if (imageKey.endsWith("/")) {
+          continue;
+        }
+
+        await env.sophie_art_tattoo_db
+          .prepare(`
+            INSERT INTO tattoos (
+              image_key,
+              alt,
+              featured,
+              sort_order
+            )
+            VALUES (?, ?, ?, ?)
+          `)
+          .bind(
+            imageKey,
+            `Tattoo ${imageKey.split("/").pop()}`,
+            1,
+            0
+          )
+          .run();
+
+        inserted++;
+      }
+
+      return Response.json({
+        message: "Tattoos sincronizados",
+        inserted,
+      });
+    }
+    if (
+      url.pathname === "/api/admin/sync-designs" &&
+      request.method === "POST"
+    ) {
+      const listed = await env.sophie_art_tattoo_images.list({
+        prefix: "designs/",
+      });
+
+      let inserted = 0;
+
+      for (const object of listed.objects) {
+        const imageKey = object.key;
+
+        // designs/{category}/{filename}
+        const parts = imageKey.split("/");
+
+        if (parts.length < 3) {
+          continue;
+        }
+        if (imageKey.endsWith("/")) {
+          continue;
+        }
+        const category = parts[1];
+
+        const existing = await env.sophie_art_tattoo_db
+          .prepare("SELECT id FROM designs WHERE image_key = ?")
+          .bind(imageKey)
+          .first();
+
+        if (existing) {
+          continue;
+        }
+
+        await env.sophie_art_tattoo_db
+          .prepare(`
+            INSERT INTO designs (
+              image_key,
+              alt,
+              category,
+              featured,
+              sort_order
+            )
+            VALUES (?, ?, ?, ?, ?)
+          `)
+          .bind(
+            imageKey,
+            `Design ${parts[parts.length - 1]}`,
+            category,
+            0,
+            inserted
+          )
+          .run();
+
+        inserted++;
+      }
+
+      return Response.json({
+        message: "Designs sincronizados",
+        inserted,
+      });
+    }
+    if (
+      url.pathname === "/api/admin/sync-prints" &&
+      request.method === "POST"
+    ) {
+      const listed = await env.sophie_art_tattoo_images.list({
+        prefix: "prints/",
+      });
+
+      let inserted = 0;
+
+      for (const object of listed.objects) {
+        const imageKey = object.key;
+
+        const existing = await env.sophie_art_tattoo_db
+          .prepare("SELECT id FROM prints WHERE image_key = ?")
+          .bind(imageKey)
+          .first();
+
+        if (existing) {
+          continue;
+        }
+        if (imageKey.endsWith("/")) {
+          continue;
+        }
+        await env.sophie_art_tattoo_db
+          .prepare(`
+            INSERT INTO prints (
+              image_key,
+              alt,
+              title,
+              featured,
+              sort_order
+            )
+            VALUES (?, ?, ?, ?, ?)
+          `)
+          .bind(
+            imageKey,
+            `Print ${imageKey.split("/").pop()}`,
+            null,
+            0,
+            inserted
+          )
+          .run();
+
+        inserted++;
+      }
+
+      return Response.json({
+        message: "Prints sincronizados",
+        inserted,
+      });
     }
     return new Response("Ruta no encontrada", {
       status: 404,

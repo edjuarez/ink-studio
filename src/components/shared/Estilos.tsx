@@ -2,6 +2,10 @@ import { useNavigate } from "react-router-dom";
 import FadeIn from "../ui/FadeIn";
 import { contentData } from "../../data/data";
 import Intro from "./Intro";
+import { GiAbstract086 } from "react-icons/gi";
+import { GiAbstract020 } from "react-icons/gi";
+import { GiAbstract065 } from "react-icons/gi";
+import { GiAbstract023 } from "react-icons/gi";
 
 export default function Estilos() {
   const { styles } = contentData.sections.estilos;

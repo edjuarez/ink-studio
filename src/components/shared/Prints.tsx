@@ -1,10 +1,42 @@
 import ActionButton from "../../components/ui/ActionButton";
 import FadeIn from "../ui/FadeIn";
 import { contentData } from "../../data/data";
+import {useState, useEffect} from "react";
+import { getPrints } from "../../services/prints";
+import type { Print } from "../../types/api";
 
 export default function Prints() {
   const { printsSection } = contentData.sections;
   const { buttons, common } = contentData;
+  const [prints, setPrints] = useState<Print[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadPrints() {
+      try {
+        const data = await getPrints(true, 3);
+        setPrints(data);
+      } catch (error) {
+        console.error("Error loading featured prints", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadPrints();
+  }, []);
+
+  if (loading) {
+    return null;
+  }
+
+  const items = prints.map((print) => ({
+    id: print.id,
+    image: print.image_url,
+    title: print.title ?? undefined,
+    category: undefined,
+  }));
+console.log(prints)
   return (
     <section className="section-bg-primary">
       <div className="mx-auto">

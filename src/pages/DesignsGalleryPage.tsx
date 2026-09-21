@@ -3,11 +3,43 @@ import Gallery from "../components/shared/Gallery";
 import FadeIn from "../components/ui/FadeIn";
 import { contentData } from "../data/data";
 import { useLocation } from "react-router-dom";
+import { getDesigns } from "../services/designs";
+import type { Design } from "../types/api";
+import { useState, useEffect } from "react";
 
 export default function DesignsGalleryPage() {
   const location = useLocation();
 
   const initialCategory = location.state?.category;
+  const [designs, setDesigns] = useState<Design[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadDesigns() {
+      try {
+        const data = await getDesigns();
+        setDesigns(data);
+      } catch (error) {
+        console.error("Error loading designs", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadDesigns();
+  }, []);
+
+  if (loading) {
+    return null;
+  }
+
+  const items = designs.map((design) => ({
+    id: design.id,
+    image: design.image_url,
+    title: undefined,
+    category: design.category ?? undefined,
+  }));
+
   return (
     <main className="section-bg-primary">
       <section className="mx-auto w-full">
@@ -24,7 +56,7 @@ export default function DesignsGalleryPage() {
         </FadeIn>
 
         <Gallery
-          items={contentData.pages.designs.items}
+          items={items}
           variant="designs"
           initialCategory={initialCategory}
         />
