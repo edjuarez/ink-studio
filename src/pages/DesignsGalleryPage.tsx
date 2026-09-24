@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { getDesigns } from "../services/designs";
 import type { Design } from "../types/api";
 import { useState, useEffect } from "react";
+import Loading from "../components/shared/Loading";
 
 export default function DesignsGalleryPage() {
   const location = useLocation();
@@ -30,7 +31,7 @@ export default function DesignsGalleryPage() {
   }, []);
 
   if (loading) {
-    return null;
+    return <Loading variant="fullscreen" />;
   }
 
   const items = designs.map((design) => ({

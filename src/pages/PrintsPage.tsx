@@ -6,6 +6,7 @@ import { contentData } from "../data/data";
 import { getPrints } from "../services/prints";
 import type { Print  } from "../types/api";
 import { useState, useEffect } from "react";
+import Loading from "../components/shared/Loading";
 
 export default function PrintsGalleryPage() {
   const [print, setPrints] = useState<Print[]>([]);
@@ -27,7 +28,7 @@ export default function PrintsGalleryPage() {
   }, []);
 
   if (loading) {
-    return null;
+    return <Loading variant="fullscreen" />;
   }
 
   const items = print.map((design) => ({

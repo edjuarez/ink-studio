@@ -79,6 +79,7 @@ export type ContentData = {
     allCategories: string;
     imageAlt: (id: number) => string;
     printAlt: (n: number) => string;
+    loadingMessage: string;
   };
   navigation: NavItem[];
   sections: {

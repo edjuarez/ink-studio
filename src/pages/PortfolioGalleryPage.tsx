@@ -5,6 +5,7 @@ import { contentData } from "../data/data";
 import { getTattoos } from "../services/tattoos";
 import type { Tattoo } from "../types/api";
 import { useState, useEffect } from "react";
+import Loading from "../components/shared/Loading";
 
 export default function PortfolioGalleryPage() {
   const [tattoos, setTattoos] = useState<Tattoo[]>([]);
@@ -26,7 +27,7 @@ export default function PortfolioGalleryPage() {
   }, []);
 
   if (loading) {
-    return null;
+    return <Loading variant="fullscreen" />;
   }
 
   const items = tattoos.map((tattoo) => ({

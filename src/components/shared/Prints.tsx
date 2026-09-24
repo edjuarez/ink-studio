@@ -65,14 +65,14 @@ console.log(prints)
 
           {/* Galería */}
           <FadeIn delay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5">
-            {printsSection.images.map((image, index) => (
+            {items.map((image, index) => (
               <a
-                key={image}
+                key={image.id}
                 href="/prints"
                 className="group relative aspect-[3/4] overflow-hidden bg-neutral-200"
               >
                 <img
-                  src={image}
+                  src={image.image}
                   alt={common.printAlt(index + 1)}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />

@@ -9,15 +9,15 @@ const site = {
 export const contentData = {
   site,
   userData: {
-    phone: "+34 600 000 000",
-    phoneRaw: "34600000000",
-    whatsappUrl: "https://wa.me/34600000000",
+    phone: "+34 655 116 208",
+    phoneRaw: "34655116208",
+    whatsappUrl: "https://wa.me/34655116208",
     email: "hola@sophiearttattoo.com",
     instagramHandle: "@sophiearttattoo",
     instagramUrl: "https://instagram.com/sophiearttattoo",
     location: "Barcelona, España",
     schedule: {
-      days: "Lunes — Viernes",
+      days: "Lunes — Sábados",
       hours: "10:00 — 19:00",
     },
   },
@@ -42,6 +42,7 @@ export const contentData = {
     allCategories: "Todos",
     imageAlt: (id: number) => `Imagen ${id}`,
     printAlt: (n: number) => `Print ${n}`,
+    loadingMessage: "Cargando..."
   },
   navigation: [
     { name: "Inicio", href: "/" },
@@ -61,7 +62,7 @@ export const contentData = {
       eyebrow: "Tattoo Artist · Barcelona",
       title: "Tatuajes & Prints",
       paragraph: "Tatuajes personalizados y piezas originales creadas desde Barcelona.",
-      styles: ["Tradicional", "Ornamental", "Linework", "OpticArt"],
+      styles: ["Tradicional", "Ornamental", "Linework", "Op Art"],
       separators: ["✦", "◇", "✦", ""],
     },
     about: {

@@ -14,9 +14,6 @@ type ContactFormData = {
   size: string;
   style: string;
   budget: string;
-  date: string;
-  availability: string;
-  additional: string;
   references: FileList;
 };
 
@@ -49,9 +46,6 @@ export default function ContactForm() {
       formData.append("size", data.size);
       formData.append("style", data.style);
       formData.append("budget", data.budget);
-      formData.append("date", data.date);
-      formData.append("availability", data.availability);
-      formData.append("additional", data.additional);
 
       if (data.references?.length) {
         Array.from(data.references).forEach((file) => {

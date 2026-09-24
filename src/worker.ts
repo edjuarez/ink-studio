@@ -17,6 +17,8 @@ const ALLOWED_IMAGE_TYPES = [
   "image/webp",
 ];
 
+const adminEmail = "sophie.tattoo@icloud.com"
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -37,9 +39,6 @@ export default {
         const size = String(formData.get("size") ?? "");
         const style = String(formData.get("style") ?? "");
         const budget = String(formData.get("budget") ?? "");
-        const date = String(formData.get("date") ?? "");
-        const availability = String(formData.get("availability") ?? "");
-        const additional = String(formData.get("additional") ?? "");
 
         const references = formData.getAll("references");
 
@@ -137,7 +136,7 @@ export default {
         const { data: emailData, error } =
           await resend.emails.send({
             from: "Sophie Art Tattoo <hola@sophiearttattoo.com>",
-            to: "edujuarezcba@gmail.com",
+            to: adminEmail,
             replyTo: email,
             subject: "Nueva consulta - Sophie Art Tattoo",
             html: `
@@ -185,21 +184,6 @@ export default {
               <p>
                 <strong>Presupuesto aproximado:</strong>
                 ${budget || "—"}
-              </p>
-
-              <p>
-                <strong>Fecha:</strong>
-                ${date || "—"}
-              </p>
-
-              <p>
-                <strong>Disponibilidad:</strong>
-                ${availability || "—"}
-              </p>
-
-              <p>
-                <strong>Información adicional:</strong>
-                ${additional || "—"}
               </p>
 
               ${referencesHtml}
@@ -314,27 +298,33 @@ export default {
       const query = featured
         ? `
           SELECT
-            id,
-            image_key,
-            alt,
-            category,
-            featured,
-            sort_order
+            designs.id,
+            designs.image_key,
+            designs.alt,
+            designs.featured,
+            designs.sort_order,
+            design_categories.name AS category,
+            design_categories.slug AS category_slug
           FROM designs
-          WHERE featured = 1
-          ORDER BY sort_order ASC
+          JOIN design_categories
+            ON designs.category_id = design_categories.id
+          WHERE designs.featured = 1
+          ORDER BY designs.sort_order ASC
           LIMIT ?
         `
         : `
           SELECT
-            id,
-            image_key,
-            alt,
-            category,
-            featured,
-            sort_order
+            designs.id,
+            designs.image_key,
+            designs.alt,
+            designs.featured,
+            designs.sort_order,
+            design_categories.name AS category,
+            design_categories.slug AS category_slug
           FROM designs
-          ORDER BY sort_order ASC
+          JOIN design_categories
+            ON designs.category_id = design_categories.id
+          ORDER BY designs.sort_order ASC
         `;
 
       const statement = featured
