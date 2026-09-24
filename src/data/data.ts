@@ -175,7 +175,7 @@ export const contentData = {
           id: '1',
           question: '¿Cómo pido un presupuesto o reservo un turno?',
           answer:
-            'Puedes completar el formulario de contacto al final de la página o enviarme un mensaje por Instagram. Para darte un presupuesto exacto necesito saber la idea, tamaño aproximado en centímetros y la zona del cuerpo.',
+            'Puedes completar el formulario de contacto al final de la página o enviarme un mensaje por Whatsapp o Instagram. Para darte un presupuesto exacto necesito saber la idea, tamaño aproximado en centímetros y la zona del cuerpo.',
         },
         {
           id: '2',
@@ -187,13 +187,13 @@ export const contentData = {
           id: '3',
           question: '¿Cuáles son las indicaciones antes de la sesión?',
           answer:
-            'Es importante descansar bien la noche anterior, mantenerse bien hidratado, comer bien antes de asistir y evitar el consumo de alcohol o medicamentos anticoagulantes 24 horas antes.',
+            ' Alimentarse bien antes de la sesión. No venir en ayunas. Hidratarse bien los días previos. No consumir alcohol, drogas ni medicamentos anticoagulantes al menos 24 hs antes. Evitar la exposición al sol los días previos. Descansar bien la noche anterior.',
         },
         {
           id: '4',
           question: '¿Cómo debo cuidar el tatuaje una vez terminado?',
           answer:
-            'Al finalizar la sesión te entregaré una guía impresa/digital con los cuidados específicos: uso del parche protector o film, jabón neutro, crema cicatrizante recomendada y precauciones con el sol y el agua.',
+            'Al finalizar la sesión te indicaré los cuidados específicos: uso del parche protector o film, jabón neutro, crema cicatrizante recomendada y precauciones con el sol y el agua.',
         },
       ],
     },
@@ -232,7 +232,7 @@ export const contentData = {
       ],
     },
     portfolio: {
-      title: "Portfolio",
+      title: "Tattoo Works",
       items: [
         { id: 6, image: "/portfolioGallery/portfolio-6.jpg" },
         { id: 8, image: "/portfolioGallery/portfolio-8.webp" },
@@ -396,5 +396,72 @@ export const contentData = {
     },
     helperText:
       "Te responderé lo antes posible para hablar sobre tu idea y disponibilidad.",
+  },
+  admin: {
+    login: {
+      eyebrow: "Panel de administración",
+      title: "Iniciar sesión",
+      description:
+        "Accede para gestionar el contenido de Sophie Art Tattoo.",
+      usernameLabel: "Usuario",
+      usernamePlaceholder: "Tu usuario",
+      passwordLabel: "Contraseña",
+      passwordPlaceholder: "Tu contraseña",
+      submit: "Entrar",
+      submitting: "Entrando...",
+      backToSite: "Volver al sitio",
+    },
+    layout: {
+      panelTitle: "Panel admin",
+      logOut: "Cerrar sesión",
+      backToSite: "Volver al sitio",
+    },
+    nav: [
+      { name: "Tatuajes", href: "/admin/tatuajes" },
+      { name: "Diseños", href: "/admin/disenos" },
+      { name: "Prints", href: "/admin/prints" },
+    ],
+    common: {
+      loading: "Cargando...",
+      empty: "No hay elementos todavía.",
+      noImage: "Sin imagen",
+      upload: "Subir imagen",
+      save: "Guardar",
+      saving: "Guardando...",
+      delete: "Eliminar",
+      deleting: "Eliminando...",
+      cancel: "Cancelar",
+      confirmDelete: "¿Seguro que quieres eliminar este elemento?",
+      deleteSuccess: "Elemento eliminado",
+      saveSuccess: "Cambios guardados",
+      createSuccess: "Elemento creado",
+    },
+    tattoos: {
+      title: "Tatuajes",
+      alt: "Texto alternativo (opcional)",
+      altPlaceholder: "Describe la imagen (opcional)",
+      featured: "Destacado",
+      sortOrder: "Orden",
+      addNew: "Añadir tatuaje",
+    },
+    designs: {
+      title: "Diseños",
+      alt: "Texto alternativo (opcional)",
+      altPlaceholder: "Describe la imagen (opcional)",
+      category: "Categoría",
+      featured: "Destacado",
+      sortOrder: "Orden",
+      addNew: "Añadir diseño",
+    },
+    prints: {
+      title: "Prints",
+      alt: "Texto alternativo (opcional)",
+      altPlaceholder: "Describe la imagen (opcional)",
+      titleField: "Título",
+      titlePlaceholder: "Nombre del print",
+      featured: "Destacado",
+      sortOrder: "Orden",
+      addNew: "Añadir print",
+    },
   },
 } satisfies ContentData;

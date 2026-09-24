@@ -229,4 +229,66 @@ export type ContentData = {
     };
     helperText: string;
   };
+  admin: {
+    login: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      usernameLabel: string;
+      usernamePlaceholder: string;
+      passwordLabel: string;
+      passwordPlaceholder: string;
+      submit: string;
+      submitting: string;
+      backToSite: string;
+    };
+    layout: {
+      panelTitle: string;
+      logOut: string;
+      backToSite: string;
+    };
+    nav: NavItem[];
+    common: {
+      loading: string;
+      empty: string;
+      noImage: string;
+      upload: string;
+      save: string;
+      saving: string;
+      delete: string;
+      deleting: string;
+      cancel: string;
+      confirmDelete: string;
+      deleteSuccess: string;
+      saveSuccess: string;
+      createSuccess: string;
+    };
+    tattoos: {
+      title: string;
+      alt: string;
+      altPlaceholder: string;
+      featured: string;
+      sortOrder: string;
+      addNew: string;
+    };
+    designs: {
+      title: string;
+      alt: string;
+      altPlaceholder: string;
+      category: string;
+      featured: string;
+      sortOrder: string;
+      addNew: string;
+    };
+    prints: {
+      title: string;
+      alt: string;
+      altPlaceholder: string;
+      titleField: string;
+      titlePlaceholder: string;
+      featured: string;
+      sortOrder: string;
+      addNew: string;
+    };
+  };
 };
