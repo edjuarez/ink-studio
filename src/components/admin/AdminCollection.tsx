@@ -15,6 +15,7 @@ import type {
 } from "../../types/admin";
 import {
   adminCreateDesign,
+  adminCreateDesignCategory,
   adminCreatePrint,
   adminCreateTattoo,
   adminDeleteDesign,
@@ -128,6 +129,26 @@ export default function AdminCollection({ kind, title }: Props) {
         .catch(() => setCategories([]));
     }
   }, [kind]);
+
+  const refreshCategories = useCallback(async () => {
+    try {
+      const result = await adminGetDesignCategories();
+      setCategories(result);
+    } catch {
+      setCategories([]);
+    }
+  }, []);
+
+  const handleCreateCategory = useCallback(
+    async (name: string) => {
+      const created = await adminCreateDesignCategory(name);
+
+      await refreshCategories();
+
+      return created;
+    },
+    [refreshCategories]
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -282,6 +303,7 @@ export default function AdminCollection({ kind, title }: Props) {
           submitting={creating}
           onCancel={() => setAdding(false)}
           onSubmit={handleCreate}
+          onCreateCategory={handleCreateCategory}
         />
       )}
 
@@ -295,7 +317,7 @@ export default function AdminCollection({ kind, title }: Props) {
           {contentData.admin.common.empty}
         </p>
       ) : (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
             <CollectionCard
               key={item.id}
@@ -323,6 +345,7 @@ function AddItemForm({
   submitting,
   onCancel,
   onSubmit,
+  onCreateCategory,
 }: {
   kind: CollectionKind;
   categories: AdminDesignCategory[];
@@ -330,6 +353,7 @@ function AddItemForm({
   submitting: boolean;
   onCancel: () => void;
   onSubmit: (input: CollectionCreate) => Promise<void>;
+  onCreateCategory: (name: string) => Promise<AdminDesignCategory>;
 }) {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -338,6 +362,9 @@ function AddItemForm({
   const [categoryId, setCategoryId] = useState<number | "">("");
   const [localError, setLocalError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [showNewCategory, setShowNewCategory] = useState(false);
+  const [newCategoryName, setNewCategoryName] = useState("");
+  const [creatingCategory, setCreatingCategory] = useState(false);
 
   const category = categories.find((c) => c.id === Number(categoryId));
 
@@ -349,6 +376,31 @@ function AddItemForm({
         : category
           ? `designs/${category.slug}/`
           : "";
+
+  const handleCreateCategory = async () => {
+    const name = newCategoryName.trim();
+
+    if (!name) {
+      return;
+    }
+
+    setLocalError(null);
+    setCreatingCategory(true);
+
+    try {
+      const created = await onCreateCategory(name);
+
+      setCategoryId(created.id);
+      setNewCategoryName("");
+      setShowNewCategory(false);
+    } catch (caught) {
+      setLocalError(
+        caught instanceof Error ? caught.message : "Error de servidor"
+      );
+    } finally {
+      setCreatingCategory(false);
+    }
+  };
 
   const handleFile = (selected: File | null) => {
     setFile(selected);
@@ -368,11 +420,6 @@ function AddItemForm({
 
     if (kind === "designs" && !category) {
       setLocalError("Selecciona una categoría");
-      return;
-    }
-
-    if (!alt.trim()) {
-      setLocalError("El texto alternativo es obligatorio");
       return;
     }
 
@@ -482,29 +529,88 @@ function AddItemForm({
 
           {kind === "designs" && (
             <div className="flex flex-col gap-2">
-              <label className="section-form-label">
-                {contentData.admin.designs.category}
-              </label>
+              <div className="flex items-end justify-between gap-4">
+                <label className="section-form-label">
+                  {contentData.admin.designs.category}
+                </label>
 
-              <select
-                value={categoryId}
-                onChange={(event) =>
-                  setCategoryId(
-                    event.target.value === ""
-                      ? ""
-                      : Number(event.target.value)
-                  )
-                }
-                className="border-b border-neutral-400 bg-transparent px-0 py-3 text-sm outline-none focus:border-neutral-900"
-              >
-                <option value="">Selecciona</option>
+                {!showNewCategory && (
+                  <button
+                    type="button"
+                    onClick={() => setShowNewCategory(true)}
+                    className="cursor-pointer text-xs uppercase tracking-[0.18em] text-neutral-500 transition-colors hover:text-neutral-900"
+                  >
+                    + Nueva
+                  </button>
+                )}
+              </div>
 
-                {categories.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
+              {showNewCategory ? (
+                <div className="flex items-end gap-3">
+                  <input
+                    type="text"
+                    value={newCategoryName}
+                    onChange={(event) => setNewCategoryName(event.target.value)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        event.preventDefault();
+                        handleCreateCategory();
+                      }
+                    }}
+                    placeholder="Nombre de la categoría"
+                    autoFocus
+                    disabled={creatingCategory}
+                    className="flex-1 border-b border-neutral-400 bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-neutral-400 focus:border-neutral-900 disabled:opacity-50"
+                  />
+
+                  <button
+                    type="button"
+                    onClick={handleCreateCategory}
+                    disabled={creatingCategory || !newCategoryName.trim()}
+                    className="flex cursor-pointer items-center gap-2 border border-neutral-900 px-4 py-2.5 text-xs uppercase tracking-[0.18em] transition-colors duration-300 hover:bg-neutral-900 hover:text-[#E8E8E8] disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    {creatingCategory ? (
+                      <Loader2 size={13} className="animate-spin" />
+                    ) : (
+                      <Check size={13} />
+                    )}
+                    {contentData.admin.common.save}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowNewCategory(false);
+                      setNewCategoryName("");
+                      setLocalError(null);
+                    }}
+                    disabled={creatingCategory}
+                    className="flex cursor-pointer items-center gap-2 border border-neutral-900 px-3 py-2.5 text-xs uppercase tracking-[0.18em] transition-colors duration-300 hover:bg-neutral-900 hover:text-[#E8E8E8] disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    <X size={13} />
+                  </button>
+                </div>
+              ) : (
+                <select
+                  value={categoryId}
+                  onChange={(event) =>
+                    setCategoryId(
+                      event.target.value === ""
+                        ? ""
+                        : Number(event.target.value)
+                    )
+                  }
+                  className="border-b border-neutral-400 bg-transparent px-0 py-3 text-sm outline-none focus:border-neutral-900"
+                >
+                  <option value="">Selecciona</option>
+
+                  {categories.map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.name}
+                    </option>
+                  ))}
+                </select>
+              )}
             </div>
           )}
 

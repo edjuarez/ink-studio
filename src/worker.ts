@@ -70,6 +70,15 @@ function imageExtension(type: string): string {
       : "webp";
 }
 
+function slugify(input: string): string {
+  return input
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function unauthorized(): Response {
   return Response.json(
     { message: "No autorizado" },
@@ -217,26 +226,105 @@ export default {
       }
 
       // ==========================================================
-      // GET /api/admin/design-categories
+      // GET / POST /api/admin/design-categories
       // ==========================================================
 
-      if (
-        url.pathname === "/api/admin/design-categories" &&
-        request.method === "GET"
-      ) {
-        const { results } = await env.sophie_art_tattoo_db
-          .prepare(`
-            SELECT
-              id,
+      if (url.pathname === "/api/admin/design-categories") {
+        if (request.method === "GET") {
+          const { results } = await env.sophie_art_tattoo_db
+            .prepare(`
+              SELECT
+                id,
+                name,
+                slug,
+                sort_order
+              FROM design_categories
+              ORDER BY sort_order ASC
+            `)
+            .all();
+
+          return Response.json(results);
+        }
+
+        if (request.method === "POST") {
+          const body = await readJsonBody(request);
+
+          if (!body) {
+            return Response.json(
+              { message: "Cuerpo inválido" },
+              { status: 400 }
+            );
+          }
+
+          const name =
+            typeof body.name === "string"
+              ? body.name.trim().replace(/\s+/g, " ")
+              : "";
+
+          if (!name) {
+            return Response.json(
+              { message: "El nombre de la categoría es obligatorio" },
+              { status: 400 }
+            );
+          }
+
+          if (name.length > 60) {
+            return Response.json(
+              { message: "El nombre no puede superar los 60 caracteres" },
+              { status: 400 }
+            );
+          }
+
+          const slug = slugify(name);
+
+          if (!slug) {
+            return Response.json(
+              { message: "El nombre no genera un slug válido" },
+              { status: 400 }
+            );
+          }
+
+          const existing = await env.sophie_art_tattoo_db
+            .prepare("SELECT name FROM design_categories WHERE slug = ?")
+            .bind(slug)
+            .first<{ name: string }>("name");
+
+          if (existing) {
+            return Response.json(
+              { message: "La categoría ya existe" },
+              { status: 400 }
+            );
+          }
+
+          const row = await env.sophie_art_tattoo_db
+            .prepare("SELECT MAX(sort_order) AS max_sort FROM design_categories")
+            .first<{ max_sort: number | null }>();
+
+          const sortOrder = (row?.max_sort ?? 0) + 1;
+
+          const result = await env.sophie_art_tattoo_db
+            .prepare(`
+              INSERT INTO design_categories (name, slug, sort_order)
+              VALUES (?, ?, ?)
+            `)
+            .bind(name, slug, sortOrder)
+            .run();
+
+          return Response.json(
+            {
+              id: result.meta.last_row_id,
               name,
               slug,
-              sort_order
-            FROM design_categories
-            ORDER BY sort_order ASC
-          `)
-          .all();
+              sort_order: sortOrder,
+            },
+            { status: 201 }
+          );
+        }
 
-        return Response.json(results);
+        return Response.json(
+          { message: "Método no permitido" },
+          { status: 405 }
+        );
       }
 
       // ==========================================================

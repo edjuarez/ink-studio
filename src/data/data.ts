@@ -232,7 +232,7 @@ export const contentData = {
       ],
     },
     portfolio: {
-      title: "Portfolio",
+      title: "Tattoo Works",
       items: [
         { id: 6, image: "/portfolioGallery/portfolio-6.jpg" },
         { id: 8, image: "/portfolioGallery/portfolio-8.webp" },
@@ -438,16 +438,16 @@ export const contentData = {
     },
     tattoos: {
       title: "Tatuajes",
-      alt: "Texto alternativo",
-      altPlaceholder: "Describe la imagen",
+      alt: "Texto alternativo (opcional)",
+      altPlaceholder: "Describe la imagen (opcional)",
       featured: "Destacado",
       sortOrder: "Orden",
       addNew: "Añadir tatuaje",
     },
     designs: {
       title: "Diseños",
-      alt: "Texto alternativo",
-      altPlaceholder: "Describe la imagen",
+      alt: "Texto alternativo (opcional)",
+      altPlaceholder: "Describe la imagen (opcional)",
       category: "Categoría",
       featured: "Destacado",
       sortOrder: "Orden",
@@ -455,8 +455,8 @@ export const contentData = {
     },
     prints: {
       title: "Prints",
-      alt: "Texto alternativo",
-      altPlaceholder: "Describe la imagen",
+      alt: "Texto alternativo (opcional)",
+      altPlaceholder: "Describe la imagen (opcional)",
       titleField: "Título",
       titlePlaceholder: "Nombre del print",
       featured: "Destacado",

@@ -86,6 +86,16 @@ export async function adminGetDesignCategories(): Promise<
   return requestJson<AdminDesignCategory[]>("/api/admin/design-categories");
 }
 
+export async function adminCreateDesignCategory(
+  name: string
+): Promise<AdminDesignCategory> {
+  return requestJson<AdminDesignCategory>("/api/admin/design-categories", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name }),
+  });
+}
+
 export async function adminUploadImage(
   file: File,
   prefix: string

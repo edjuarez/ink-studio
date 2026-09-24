@@ -37,7 +37,7 @@ export default function AdminLayout({
             </p>
 
             {username && (
-              <h1 className="font-display text-3xl uppercase tracking-normal text-text md:text-4xl">
+              <h1 className="font-display text-3xl tracking-normal text-text md:text-4xl">
                 {username}
               </h1>
             )}
