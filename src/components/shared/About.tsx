@@ -46,7 +46,7 @@ export default function About() {
                 </p>
               ))}
             </div>
-            <ActionButton href="/#contacto" variant="light">
+            <ActionButton href="/contacto" variant="light">
               {contentData.buttons.bookAppointment}
             </ActionButton>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
