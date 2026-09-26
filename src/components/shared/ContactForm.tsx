@@ -69,8 +69,6 @@ export default function ContactForm() {
         );
       }
 
-      console.log(result);
-
       setSubmitMessage(
         "Tu consulta fue enviada correctamente. ¡Gracias por contactar!"
       );

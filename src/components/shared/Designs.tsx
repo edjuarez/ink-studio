@@ -36,7 +36,7 @@ export default function Designs() {
     title: undefined,
     category: design.category ?? undefined,
   }));
-  console.log(items)
+
   return (
     <section className="section-bg-primary">
       <div className="mx-auto">

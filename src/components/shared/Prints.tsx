@@ -36,7 +36,7 @@ export default function Prints() {
     title: print.title ?? undefined,
     category: undefined,
   }));
-console.log(prints)
+
   return (
     <section className="section-bg-primary">
       <div className="mx-auto">
