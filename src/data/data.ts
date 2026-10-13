@@ -211,6 +211,7 @@ export const contentData = {
       copyright: (year: number) =>
         `© ${year} ${site.fullName}. Todos los derechos reservados.`,
       credit: "Hecho por Tuchidigital",
+      creditUrl: "https://www.tuchidigital.com"
     },
   },
   pages: {

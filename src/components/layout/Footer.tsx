@@ -115,7 +115,9 @@ export default function Footer() {
           </p>
 
           <a
-            href="#"
+            href={contentData.sections.footer.creditUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="transition-opacity hover:opacity-60"
           >
             {contentData.sections.footer.credit}

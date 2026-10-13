@@ -154,6 +154,7 @@ export type ContentData = {
       policies: FooterLink[];
       copyright: (year: number) => string;
       credit: string;
+      creditUrl: string
     };
   };
   pages: {
