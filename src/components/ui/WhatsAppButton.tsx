@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react"; */
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { contentData } from "../../data/data";
 
-export default function WhatsAppButton() {
-  const [visible, setVisible] = useState(false);
+export default function WhatsAppButton() {/* 
+  const [visible, setVisible] = useState(true); */
   const prefersReduced = useReducedMotion();
 
-  useEffect(() => {
+/*   useEffect(() => {
     const hero = document.getElementById("home");
 
     if (!hero) return;
@@ -24,11 +24,11 @@ export default function WhatsAppButton() {
     observer.observe(hero);
 
     return () => observer.disconnect();
-  }, []);
+  }, []); */
 
   return (
     <AnimatePresence>
-      {visible && (
+{/*       {visible && ( */}
         <motion.a
           href={contentData.userData.whatsappUrl}
           target="_blank"
@@ -42,7 +42,7 @@ export default function WhatsAppButton() {
         >
           <FaWhatsapp size={30} />
         </motion.a>
-      )}
+{/*       )} */}
     </AnimatePresence>
   );
 }
